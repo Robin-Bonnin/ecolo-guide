@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/api/suggestions", "destination": "/api/suggestions.js" },
+    { "source": "/api/entries", "destination": "/api/entries.js" },
+    { "source": "/api/events", "destination": "/api/events.js" },
+    { "source": "/api/who", "destination": "/api/who.js" },
+    { "source": "/api/admin-login", "destination": "/api/admin-login.js" },
+    { "source": "/", "destination": "/guide.html" }
+  ]
+}
