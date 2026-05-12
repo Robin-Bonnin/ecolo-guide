@@ -460,6 +460,7 @@
         margin-bottom: 0.65rem;
         display: -webkit-box;
         -webkit-line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
@@ -1309,6 +1310,290 @@
       .who-edit-btn:hover {
         border-color: var(--gm);
         color: var(--gm);
+      }
+
+      @media (max-width: 1024px) {
+        .nav-inner,
+        .hero-inner,
+        .sub-bar-inner,
+        .sticky-inner,
+        .content,
+        .who-content,
+        .who-hero,
+        .admin-body {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+        .cards-grid {
+          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        }
+        #map {
+          height: 430px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          position: static;
+        }
+        .nav-inner {
+          height: auto;
+          min-height: 72px;
+          padding-top: 0.7rem;
+          padding-bottom: 0.7rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .logo {
+          width: 100%;
+          justify-content: center;
+        }
+        .nav-tabs {
+          width: 100%;
+          overflow-x: auto;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          padding-bottom: 2px;
+          scrollbar-width: thin;
+        }
+        .nav-tab {
+          font-size: 12px;
+          padding: 8px 10px;
+        }
+        .nav-btn {
+          margin-left: auto;
+        }
+
+        .hero {
+          padding: 1.5rem 1rem 1.25rem;
+        }
+        .hero-top {
+          flex-direction: column;
+          gap: 0.85rem;
+          margin-bottom: 1rem;
+        }
+        .hero-logo {
+          height: 52px;
+        }
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+        .hero p {
+          font-size: 0.9rem;
+          line-height: 1.55;
+          margin-bottom: 1rem;
+        }
+
+        .search-row {
+          gap: 0.5rem;
+        }
+        .search-wrap {
+          flex: 1 1 100%;
+          max-width: none;
+        }
+        .city-sel,
+        .geo-btn {
+          flex: 1 1 calc(50% - 0.25rem);
+          min-width: 0;
+          text-align: center;
+        }
+
+        .sub-bar-inner {
+          gap: 5px;
+        }
+        .sub-label {
+          width: 100%;
+          margin-bottom: 2px;
+        }
+
+        .sticky-bar {
+          position: static;
+        }
+        .sticky-inner {
+          padding-top: 0.6rem;
+          padding-bottom: 0.6rem;
+          flex-wrap: wrap;
+          align-items: stretch;
+        }
+        .filter-label {
+          width: 100%;
+        }
+
+        .content {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+        .cards-grid {
+          grid-template-columns: 1fr;
+          gap: 0.7rem;
+        }
+        .card {
+          padding: 0.95rem;
+        }
+        .card-desc {
+          -webkit-line-clamp: 4;
+          line-clamp: 4;
+        }
+        .pagination {
+          gap: 5px;
+        }
+
+        #map {
+          height: 360px;
+        }
+        .map-info {
+          font-size: 11px;
+          padding: 0.5rem 0.65rem;
+          right: 8px;
+          top: 8px;
+        }
+
+        .detail-card {
+          padding: 1.25rem;
+          border-radius: 14px;
+        }
+        .detail-title {
+          font-size: 1.3rem;
+        }
+        .detail-desc {
+          font-size: 14px;
+          line-height: 1.65;
+        }
+        .detail-info {
+          grid-template-columns: 1fr;
+        }
+        .maps-link {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .event-summary {
+          flex-wrap: wrap;
+          gap: 0.75rem;
+          padding: 0.9rem 1rem;
+        }
+        .event-date-block {
+          min-width: 54px;
+        }
+        .event-toggle {
+          margin-left: 0;
+        }
+        .event-detail {
+          padding: 0 1rem 0.9rem 1rem;
+        }
+        .event-detail-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .form-section,
+        .who-card,
+        .admin-login-wrap {
+          padding: 1.15rem;
+          border-radius: 12px;
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+        .ftabs {
+          flex-wrap: wrap;
+        }
+        .fchip {
+          padding: 7px 12px;
+        }
+
+        .who-hero {
+          padding: 1.8rem 1rem 1.3rem;
+        }
+        .who-content {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+        .cand-avatar {
+          width: 52px;
+          height: 52px;
+        }
+        .cand-bio {
+          padding-left: 0;
+        }
+
+        .admin-header {
+          padding: 0.9rem 1rem;
+          gap: 0.7rem;
+          flex-wrap: wrap;
+        }
+        .admin-body {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+        .admin-tabs {
+          gap: 6px;
+        }
+        .atab {
+          padding: 7px 11px;
+        }
+        .admin-search-bar {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .admin-search-bar input,
+        .admin-search-bar select {
+          width: 100%;
+          min-width: 0;
+        }
+        .admin-table th,
+        .admin-table td {
+          white-space: nowrap;
+        }
+
+        .modal {
+          width: calc(100% - 1rem);
+          max-height: 92vh;
+          padding: 1.1rem;
+          border-radius: 12px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          font-size: 15px;
+        }
+        .hero h1 {
+          font-size: 1.5rem;
+          line-height: 1.2;
+        }
+        .hero-badge {
+          font-size: 10px;
+        }
+        .search-input,
+        .city-sel,
+        .geo-btn {
+          font-size: 13px;
+          padding-top: 9px;
+          padding-bottom: 9px;
+        }
+        .city-sel,
+        .geo-btn {
+          flex-basis: 100%;
+        }
+        .cchip,
+        .schip,
+        .vtab,
+        .page-btn {
+          min-height: 34px;
+        }
+        .detail-card {
+          padding: 1rem;
+        }
+        .detail-title {
+          font-size: 1.15rem;
+        }
+        #map {
+          height: 300px;
+        }
+        .modal-close {
+          top: 0.7rem;
+          right: 0.7rem;
+        }
       }
     </style>
   </head>
