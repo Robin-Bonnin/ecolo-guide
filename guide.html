@@ -2480,11 +2480,120 @@
     </div>
 
     <script>
+      const PRODUITS = "produits";
+      const BIO = "bio";
+      const SERVICES = "services";
+      const LIEUX = "lieux";
+      const EVENEMENTS = "evenements";
+      const SECONDE = "seconde";
+      const REFILL = "refill";
+      const REPARATION = "reparation";
+      const EDUCATION = "education";
+      const ENFANT_NATURE = "enfant_nature";
+      const ENGAGER = "engager";
+      const EMPLOI = "emploi";
+      const RECYCLAGE = "recyclage";
+      const CATEGORIES = [
+        {
+          id: BIO,
+          name: "Alimentation bio et locale",
+          subtags: [
+            "À commander en ligne",
+            "En boutique",
+            "Marchés et paniers",
+            "Bio certifié",
+            "Local et circuit court",
+          ],
+        },
+
+        {
+          id: PRODUITS,
+          name: "Produits",
+          subtags: [
+            "Soins et cosmétiques",
+            "Maison et entretien",
+            "Vêtements et textile",
+            "Jouets et enfants",
+            "Épicerie et alimentaire",
+          ],
+        },
+        {
+          id: REFILL,
+          name: "Refill et zéro déchet",
+          subtags: [
+            "Station de recharge",
+            "Vrac alimentaire",
+            "Vrac cosmétique et ménager",
+          ],
+        },
+
+        {
+          id: REPARATION,
+          name: "Réparation",
+          subtags: [
+            "Vélo",
+            "Électronique",
+            "Électroménager",
+            "Vêtements et cordonnerie",
+            "Horlogerie et bijoux",
+          ],
+        },
+
+        {
+          id: SECONDE,
+          name: "Seconde main",
+          subtags: [
+            "Vêtements",
+            "Mobilier et déco",
+            "Livres",
+            "Électronique",
+            "En ligne uniquement",
+          ],
+        },
+        {
+          id: EDUCATION,
+          name: "Éducation",
+          subtags: [],
+        },
+
+        {
+          id: ENFANT_NATURE,
+          name: "Enfants et Nature",
+          subtags: [],
+        },
+        {
+          id: ENGAGER,
+          name: "S’engager",
+          subtags: [
+            "Nettoyage et environnement",
+            "Permaculture et fermes",
+            "Éducation et ateliers",
+            "Bénévolat et dons",
+          ],
+        },
+        {
+          id: EMPLOI,
+          name: "Emploi écolo",
+          subtags: [],
+        },
+        {
+          id: RECYCLAGE,
+          name: "Recyclage et collecte",
+          subtags: [
+            "Piles et batteries",
+            "Électronique",
+            "Plastique",
+            "Verre",
+            "Papier et carton",
+            "Textiles et dons",
+          ],
+        },
+      ];
       const KML_DATA = [
         {
           id: 100,
           title: "Ecotopia @ Siam Discovery",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "Ecotopia @ Siam Discovery, Thaïlande",
           lat: 13.746788,
@@ -2498,7 +2607,7 @@
         {
           id: 101,
           title: "Bangkok Soap Opera",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "Bangkok Soap Opera, Thaïlande",
           lat: 13.72689,
@@ -2512,7 +2621,7 @@
         {
           id: 102,
           title: "Bangkok Soap Opera @ Terminal 21",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "Bangkok Soap Opera @ Terminal 21, Thaïlande",
           lat: 13.737946,
@@ -2526,7 +2635,7 @@
         {
           id: 103,
           title: "Ma Deluxe",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Chiang Mai",
           addr: "Ma Deluxe, Thaïlande",
           lat: 18.574508,
@@ -2540,7 +2649,7 @@
         {
           id: 104,
           title: "Lab Space",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "Lab Space, Thaïlande",
           lat: 13.798815,
@@ -2554,21 +2663,21 @@
         {
           id: 105,
           title: "May and Co.",
-          cat: "produits",
+          cat: BIO,
           city: "Koh Samui",
           addr: "May and Co., Thaïlande",
           lat: 10.094133,
           lng: 99.828616,
           desc: "Epicerie generale locale dont tous les produits sont selectionnes pour leur qualite ecologique et esthetique. Ouvert tous les jours de 11h a 20h.",
           cost: "",
-          subtags: ["maison"],
+          subtags: ["boutique", "local"],
           link: "",
           published: true,
         },
         {
           id: 106,
           title: "Flexi Lexi Fitness Showroom",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "Flexi Lexi Fitness Showroom, Thaïlande",
           lat: 13.705139,
@@ -2582,7 +2691,7 @@
         {
           id: 107,
           title: "Studio Naenna",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Chiang Mai",
           addr: "Studio Naenna, Thaïlande",
           lat: 18.819283,
@@ -2596,7 +2705,7 @@
         {
           id: 108,
           title: "Adorn with Studio Naenna",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Chiang Mai",
           addr: "Adorn with Studio Naenna, Thaïlande",
           lat: 18.799671,
@@ -2610,7 +2719,7 @@
         {
           id: 109,
           title: "Eco Print on Silk by Longbai Studio",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "Eco Print on Silk by Longbai Studio, Thaïlande",
           lat: 13.811504,
@@ -2624,7 +2733,7 @@
         {
           id: 110,
           title: "ChiangmaiCotton",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Chiang Mai",
           addr: "ChiangmaiCotton, Thaïlande",
           lat: 18.788068,
@@ -2638,7 +2747,7 @@
         {
           id: 111,
           title: "PlanToys",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "PlanToys, Thaïlande",
           lat: 13.721884,
@@ -2652,7 +2761,7 @@
         {
           id: 112,
           title: "Wonderworld Toys",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "Wonderworld Toys, Thaïlande",
           lat: 13.984646,
@@ -2666,21 +2775,21 @@
         {
           id: 113,
           title: "BACC  'it's going green' สวนชั้น 1",
-          cat: "produits",
+          cat: BIO,
           city: "Bangkok",
           addr: "BACC  'it's going green' สวนชั้น 1, Thaïlande",
           lat: 13.746651,
           lng: 100.530461,
           desc: "Boutique proposant fruits et legumes bio frais, vetements artisanaux et produits locaux. Au Centre d Art et de Culture de Bangkok, salle 105.",
           cost: "",
-          subtags: ["textile"],
+          subtags: ["boutique", "local", "bio_certifie"],
           link: "https://www.facebook.com/itsgoing/",
           published: true,
         },
         {
           id: 114,
           title: "BACC Co-Cycling Space - ร้านจักรยานหอศิลปฯ",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "BACC Co-Cycling Space - ร้านจักรยานหอศิลปฯ, Thaïlande",
           lat: 13.746657,
@@ -2694,7 +2803,7 @@
         {
           id: 115,
           title: "BOTANICESSENCE",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "BOTANICESSENCE, Thaïlande",
           lat: 13.71756,
@@ -2708,7 +2817,7 @@
         {
           id: 116,
           title: "Novessence Beauty Products & Essential Oils",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "Novessence Beauty Products & Essential Oils, Thaïlande",
           lat: 13.729197,
@@ -2722,7 +2831,7 @@
         {
           id: 117,
           title: "Oleaf Organic Silom",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "Oleaf Organic Silom, Thaïlande",
           lat: 13.728071,
@@ -2736,7 +2845,7 @@
         {
           id: 118,
           title: "Organic Pavilion Bangkok",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "Organic Pavilion Bangkok, Thaïlande",
           lat: 13.738531,
@@ -2750,21 +2859,21 @@
         {
           id: 119,
           title: "Khaokho Talay Phu Natural Farm",
-          cat: "produits",
+          cat: BIO,
           city: "Bangkok",
           addr: "Khaokho Talay Phu Natural Farm, Thaïlande",
           lat: 16.727608,
           lng: 101.01978,
           desc: "Ferme bio a Petchabun proposant soins corporels, produits alimentaires et huiles essentielles, en ligne et en supermarches.",
           cost: "",
-          subtags: ["soins", "epicerie"],
+          subtags: ["bio_certifie", "local"],
           link: "https://www.facebook.com/KhaokhoTalaypu/",
           published: true,
         },
         {
           id: 120,
           title: "HQ PaperMaker",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Chiang Mai",
           addr: "HQ PaperMaker, Thaïlande",
           lat: 18.787771,
@@ -2778,7 +2887,7 @@
         {
           id: 121,
           title: "141 Social Enterprise Wooden Toys",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "141 Social Enterprise Wooden Toys, Thaïlande",
           lat: 13.880337,
@@ -2792,7 +2901,7 @@
         {
           id: 122,
           title: "Veerasa Natural Plates",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "Veerasa Natural Plates, Thaïlande",
           lat: 14.901528,
@@ -2806,7 +2915,7 @@
         {
           id: 123,
           title: "Eco Plates by Tha Dee Mee จานกาบหมากท่าดีหมี",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "Eco Plates by Tha Dee Mee จานกาบหมากท่าดีหมี, Thaïlande",
           lat: 17.815093,
@@ -2820,7 +2929,7 @@
         {
           id: 124,
           title: "PDM BRAND",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "PDM BRAND, Thaïlande",
           lat: 13.735348,
@@ -2834,7 +2943,7 @@
         {
           id: 125,
           title: "Hoooray Natural Deo #Online",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "Hoooray Natural Deo #Online, Thaïlande",
           lat: 13.776271,
@@ -2848,7 +2957,7 @@
         {
           id: 126,
           title: "Rescued Glass #Online",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Bangkok",
           addr: "Rescued Glass #Online, Thaïlande",
           lat: 13.741116,
@@ -2862,7 +2971,7 @@
         {
           id: 127,
           title: "BeeConscious Co., Ltd.",
-          cat: "produits",
+          cat: PRODUITS,
           city: "Chiang Mai",
           addr: "BeeConscious Co., Ltd., Thaïlande",
           lat: 18.783813,
@@ -2876,21 +2985,21 @@
         {
           id: 128,
           title: "Ali Everyday Products",
-          cat: "produits",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Ali Everyday Products, Thaïlande",
           lat: 13.776989,
           lng: 100.635781,
           desc: "Boutique de recharge en ligne pour soins personnels et menagers a base d ingredients naturels et locaux.",
           cost: "",
-          subtags: ["soins", "maison"],
+          subtags: ["station_recharge", "online"],
           link: "https://alinaturalliving.com/shop/",
           published: true,
         },
         {
           id: 129,
           title: "Sustaina Organic Shop",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Sustaina Organic Shop, Thaïlande",
           lat: 13.730345,
@@ -2904,7 +3013,7 @@
         {
           id: 130,
           title: "Chita Organic Food Co., Ltd.",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Chita Organic Food Co., Ltd., Thaïlande",
           lat: 18.432005,
@@ -2918,7 +3027,7 @@
         {
           id: 131,
           title: "Farmtastic Organic Food Delivery",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Farmtastic Organic Food Delivery, Thaïlande",
           lat: 13.724189,
@@ -2932,7 +3041,7 @@
         {
           id: 132,
           title: "The Giving Town",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "The Giving Town, Thaïlande",
           lat: 13.717291,
@@ -2946,7 +3055,7 @@
         {
           id: 133,
           title: "OC Organic shop",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "OC Organic shop, Thaïlande",
           lat: 13.893054,
@@ -2960,7 +3069,7 @@
         {
           id: 134,
           title: "OC Organic Shop @ La Monita Taqueria",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "OC Organic Shop @ La Monita Taqueria, Thaïlande",
           lat: 13.741899,
@@ -2974,7 +3083,7 @@
         {
           id: 135,
           title: "Bo.lan & Sloane's Aharn Farang Co., Ltd",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Bo.lan & Sloane's Aharn Farang Co., Ltd, Thaïlande",
           lat: 13.663803,
@@ -2988,7 +3097,7 @@
         {
           id: 136,
           title: "Prosun Farm Co.,Ltd (Klongphai Farm) (ONLINE DELIVERY)",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Prosun Farm Co.,Ltd (Klongphai Farm) (ONLINE DELIVERY), Thaïlande",
           lat: 13.703587,
@@ -3002,7 +3111,7 @@
         {
           id: 137,
           title: "Organic Section in Or Tor Kor Market @ Chatuchak",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Organic Section in Or Tor Kor Market @ Chatuchak, Thaïlande",
           lat: 13.797291,
@@ -3016,7 +3125,7 @@
         {
           id: 138,
           title: "Sookjai Farmer's Market",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Sookjai Farmer's Market, Thaïlande",
           lat: 13.735891,
@@ -3030,7 +3139,7 @@
         {
           id: 139,
           title: "Bangkok Green Market",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Bangkok Green Market, Thaïlande",
           lat: 13.736321,
@@ -3044,7 +3153,7 @@
         {
           id: 140,
           title: "Siamaya Chocolate Factory Shop & Office",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Siamaya Chocolate Factory Shop & Office, Thaïlande",
           lat: 18.821425,
@@ -3058,7 +3167,7 @@
         {
           id: 141,
           title: "Siamaya Chocolate",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Siamaya Chocolate, Thaïlande",
           lat: 18.789033,
@@ -3072,7 +3181,7 @@
         {
           id: 142,
           title: "Baan Na Vilit บ้านนาวิลิต",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Baan Na Vilit บ้านนาวิลิต, Thaïlande",
           lat: 13.736112,
@@ -3086,7 +3195,7 @@
         {
           id: 143,
           title: "Royal Project Shop @ Chiang Mai Outlet 1",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Royal Project Shop @ Chiang Mai Outlet 1, Thaïlande",
           lat: 18.752761,
@@ -3100,7 +3209,7 @@
         {
           id: 144,
           title: "Royal Project Shop @ Chiang Mai Airport",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Royal Project Shop @ Chiang Mai Airport, Thaïlande",
           lat: 18.768701,
@@ -3114,7 +3223,7 @@
         {
           id: 145,
           title: "Royal Project Shop @ Central Plaza Chiang Mai Airport",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Royal Project Shop @ Central Plaza Chiang Mai Airport, Thaïlande",
           lat: 18.768937,
@@ -3128,7 +3237,7 @@
         {
           id: 146,
           title: "Royal Project Shop @ Thanon Suthep",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Royal Project Shop @ Thanon Suthep, Thaïlande",
           lat: 18.791707,
@@ -3142,7 +3251,7 @@
         {
           id: 147,
           title: "Royal Project Shop @ 89 Plaza Branch",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Royal Project Shop @ 89 Plaza Branch, Thaïlande",
           lat: 18.752138,
@@ -3156,7 +3265,7 @@
         {
           id: 148,
           title: "Royal Project Shop @ Central Plaza Chiang Rai",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Royal Project Shop @ Central Plaza Chiang Rai, Thaïlande",
           lat: 19.886226,
@@ -3170,7 +3279,7 @@
         {
           id: 149,
           title: "Royal Project Shop @ Udonthani",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Royal Project Shop @ Udonthani, Thaïlande",
           lat: 17.406322,
@@ -3184,7 +3293,7 @@
         {
           id: 150,
           title: "Royal Project Shop @ Future Park Rangsit",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Royal Project Shop @ Future Park Rangsit, Thaïlande",
           lat: 13.988521,
@@ -3198,7 +3307,7 @@
         {
           id: 151,
           title: "Royal Project Shop @ Wang Dang",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Royal Project Shop @ Wang Dang, Thaïlande",
           lat: 13.769285,
@@ -3212,7 +3321,7 @@
         {
           id: 152,
           title: "Royal Project Shop @ Ramathipbodi Hospital",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Royal Project Shop @ Ramathipbodi Hospital, Thaïlande",
           lat: 13.771447,
@@ -3226,7 +3335,7 @@
         {
           id: 153,
           title: "Royal Project Shop @ Suvarnabhumi Domestic Terminal (SD5)",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Royal Project Shop @ Suvarnabhumi Domestic Terminal (SD5), Thaïlande",
           lat: 13.690936,
@@ -3240,7 +3349,7 @@
         {
           id: 154,
           title: "Royal Project Shop @ Don Mueang International Airport",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Royal Project Shop @ Don Mueang International Airport, Thaïlande",
           lat: 13.91326,
@@ -3254,7 +3363,7 @@
         {
           id: 155,
           title: "Royal Project Shop @ Or Tor Kor",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Royal Project Shop @ Or Tor Kor, Thaïlande",
           lat: 13.79725,
@@ -3268,7 +3377,7 @@
         {
           id: 156,
           title: "Royal Project Shop @ Kasetsart Uni",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Royal Project Shop @ Kasetsart Uni, Thaïlande",
           lat: 13.849316,
@@ -3282,7 +3391,7 @@
         {
           id: 157,
           title: "Royal Project Shop @ Bon Marche",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Royal Project Shop @ Bon Marche, Thaïlande",
           lat: 13.839818,
@@ -3296,7 +3405,7 @@
         {
           id: 158,
           title: "Royal Project Shop @ The Old Siam",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Royal Project Shop @ The Old Siam, Thaïlande",
           lat: 13.74592,
@@ -3310,7 +3419,7 @@
         {
           id: 159,
           title: "Rimping Supermarket @ Promenada",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Rimping Supermarket @ Promenada, Thaïlande",
           lat: 18.767175,
@@ -3324,7 +3433,7 @@
         {
           id: 160,
           title: "Rimping Supermarket @ Meechok",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Rimping Supermarket @ Meechok, Thaïlande",
           lat: 18.823813,
@@ -3338,7 +3447,7 @@
         {
           id: 161,
           title: "Rimping Supermarket @ Nim City",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Rimping Supermarket @ Nim City, Thaïlande",
           lat: 18.771756,
@@ -3352,7 +3461,7 @@
         {
           id: 162,
           title: "Rimping Supermarket @ Nawarat",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Rimping Supermarket @ Nawarat, Thaïlande",
           lat: 18.783493,
@@ -3366,7 +3475,7 @@
         {
           id: 163,
           title: "Rimping Supermarket @ Maya Lifestyle",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Rimping Supermarket @ Maya Lifestyle, Thaïlande",
           lat: 18.802412,
@@ -3380,7 +3489,7 @@
         {
           id: 164,
           title: "Rimping Supermarket @ Kad Farang",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Rimping Supermarket @ Kad Farang, Thaïlande",
           lat: 18.701559,
@@ -3394,7 +3503,7 @@
         {
           id: 165,
           title: "Rimping Grocery @ Homepro Sansai",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Rimping Grocery @ Homepro Sansai, Thaïlande",
           lat: 18.834721,
@@ -3408,7 +3517,7 @@
         {
           id: 166,
           title: "Rimping Grocery @ Mali Place",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Rimping Grocery @ Mali Place, Thaïlande",
           lat: 18.746848,
@@ -3422,7 +3531,7 @@
         {
           id: 167,
           title: "Lemon Farm @ Mega Bang Na",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ Mega Bang Na, Thaïlande",
           lat: 13.646526,
@@ -3436,7 +3545,7 @@
         {
           id: 168,
           title: "Lemon Farm @ Index Living Mall Bangna",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ Index Living Mall Bangna, Thaïlande",
           lat: 13.665278,
@@ -3450,7 +3559,7 @@
         {
           id: 169,
           title: "Lemon Farm @ Index Living Mall Phra Ram 2",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ Index Living Mall Phra Ram 2, Thaïlande",
           lat: 13.665701,
@@ -3464,7 +3573,7 @@
         {
           id: 170,
           title: "Lemon Farm @ The Walk Kaset Nawamin",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ The Walk Kaset Nawamin, Thaïlande",
           lat: 13.82894,
@@ -3478,7 +3587,7 @@
         {
           id: 171,
           title: "Lemon Farm @ Future Park Rangsit",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ Future Park Rangsit, Thaïlande",
           lat: 13.987777,
@@ -3492,7 +3601,7 @@
         {
           id: 172,
           title: "Lemon Farm @ Thonglor Fifty Fifth Mall",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ Thonglor Fifty Fifth Mall, Thaïlande",
           lat: 13.726173,
@@ -3506,7 +3615,7 @@
         {
           id: 173,
           title: "Lemon Farm @ The Nine Phra Ram 9",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ The Nine Phra Ram 9, Thaïlande",
           lat: 13.74127,
@@ -3520,7 +3629,7 @@
         {
           id: 174,
           title: "Lemon Farm @ The Walk Ratchaphruek",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ The Walk Ratchaphruek, Thaïlande",
           lat: 13.81925,
@@ -3534,7 +3643,7 @@
         {
           id: 175,
           title: "Lemon Farm @ Seacon Bangkhae",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ Seacon Bangkhae, Thaïlande",
           lat: 13.712339,
@@ -3548,7 +3657,7 @@
         {
           id: 176,
           title: "Lemon Farm @ The Portico Chidlom",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ The Portico Chidlom, Thaïlande",
           lat: 13.742196,
@@ -3562,7 +3671,7 @@
         {
           id: 177,
           title: "Lemon Farm @ Paradise Park",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ Paradise Park, Thaïlande",
           lat: 13.686834,
@@ -3576,7 +3685,7 @@
         {
           id: 178,
           title: "Lemon Farm @ Pradit Manutham CDC",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ Pradit Manutham CDC, Thaïlande",
           lat: 13.808534,
@@ -3590,7 +3699,7 @@
         {
           id: 179,
           title: "Lemon Farm @ Petchkasem 57",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ Petchkasem 57, Thaïlande",
           lat: 13.709134,
@@ -3604,7 +3713,7 @@
         {
           id: 180,
           title: "Lemon Farm @ Prachachuen Nonthaburi",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ Prachachuen Nonthaburi, Thaïlande",
           lat: 13.873653,
@@ -3618,7 +3727,7 @@
         {
           id: 181,
           title: "Lemon farm @ 39",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon farm @ 39, Thaïlande",
           lat: 13.736732,
@@ -3632,7 +3741,7 @@
         {
           id: 182,
           title: "Lemon Farm @ Chaeng Wattana (HEAD OFFICE)",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Lemon Farm @ Chaeng Wattana (HEAD OFFICE), Thaïlande",
           lat: 13.895057,
@@ -3646,7 +3755,7 @@
         {
           id: 183,
           title: "Sunshine Market",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Sunshine Market, Thaïlande",
           lat: 13.730097,
@@ -3660,7 +3769,7 @@
         {
           id: 184,
           title: "Radiance Wholefoods",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Radiance Wholefoods, Thaïlande",
           lat: 13.734082,
@@ -3674,7 +3783,7 @@
         {
           id: 185,
           title: "Organic Supply",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Organic Supply, Thaïlande",
           lat: 13.799829,
@@ -3688,7 +3797,7 @@
         {
           id: 186,
           title: "Kanchana Organic Mulberry Tea",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Kanchana Organic Mulberry Tea, Thaïlande",
           lat: 13.998019,
@@ -3702,7 +3811,7 @@
         {
           id: 187,
           title: "Raming Tea Co.,Ltd.",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Raming Tea Co.,Ltd., Thaïlande",
           lat: 18.762019,
@@ -3716,7 +3825,7 @@
         {
           id: 188,
           title: "Foodle Noodle CO.,LTD.",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Foodle Noodle CO.,LTD., Thaïlande",
           lat: 14.070926,
@@ -3730,7 +3839,7 @@
         {
           id: 189,
           title: "Supha Bee Farm",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Supha Bee Farm, Thaïlande",
           lat: 18.91208,
@@ -3744,7 +3853,7 @@
         {
           id: 190,
           title: "Thep Prasit Honey Farm",
-          cat: "bio",
+          cat: BIO,
           city: "Chiang Mai",
           addr: "Thep Prasit Honey Farm, Thaïlande",
           lat: 18.774351,
@@ -3758,7 +3867,7 @@
         {
           id: 191,
           title: "Ooga Booga Farm",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Ooga Booga Farm, Thaïlande",
           lat: 13.656801,
@@ -3772,7 +3881,7 @@
         {
           id: 192,
           title: "Organic story @ Ratchapruek",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Organic story @ Ratchapruek, Thaïlande",
           lat: 13.765554,
@@ -3786,7 +3895,7 @@
         {
           id: 193,
           title: "Organic story @ Siam Square",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Organic story @ Siam Square, Thaïlande",
           lat: 13.744707,
@@ -3800,7 +3909,7 @@
         {
           id: 194,
           title: "Sourced Grocers",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Sourced Grocers, Thaïlande",
           lat: 13.734843,
@@ -3814,7 +3923,7 @@
         {
           id: 195,
           title: "The Yard Grocery",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "The Yard Grocery, Thaïlande",
           lat: 13.776248,
@@ -3828,7 +3937,7 @@
         {
           id: 196,
           title: "Harmony Life Organic Farm @ Pakchong",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Harmony Life Organic Farm @ Pakchong, Thaïlande",
           lat: 14.625043,
@@ -3842,7 +3951,7 @@
         {
           id: 197,
           title: "Veggie Favour Organic & Natural Shop",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Veggie Favour Organic & Natural Shop, Thaïlande",
           lat: 13.727947,
@@ -3856,7 +3965,7 @@
         {
           id: 198,
           title: "Happy Grocers",
-          cat: "bio",
+          cat: BIO,
           city: ["Bangkok", "En ligne"],
           addr: "Happy Grocers, Thaïlande",
           lat: 13.722319,
@@ -3870,7 +3979,7 @@
         {
           id: 199,
           title: "A Little Farmer Organic Farm (Delivery)",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "A Little Farmer Organic Farm (Delivery), Thaïlande",
           lat: 13.810916,
@@ -3884,7 +3993,7 @@
         {
           id: 200,
           title: "Organ by Smart Nine Farm",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Organ by Smart Nine Farm, Thaïlande",
           lat: 13.867333,
@@ -3898,7 +4007,7 @@
         {
           id: 201,
           title: "Pla Organic Social Enterprise ร้านปลาออร์แกนิก",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Pla Organic Social Enterprise ร้านปลาออร์แกนิก, Thaïlande",
           lat: 13.80943,
@@ -3912,7 +4021,7 @@
         {
           id: 202,
           title: "Mr. Maarten's Microgreens Co., Ltd.",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Mr. Maarten's Microgreens Co., Ltd., Thaïlande",
           lat: 13.657832,
@@ -3926,7 +4035,7 @@
         {
           id: 203,
           title: "Raitong Organics Farm (ONLINE)",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Raitong Organics Farm (ONLINE), Thaïlande",
           lat: 14.976477,
@@ -3940,7 +4049,7 @@
         {
           id: 204,
           title: "Raitiaviset Organic farm ไร่เตียวิเศษ",
-          cat: "bio",
+          cat: BIO,
           city: "Phuket",
           addr: "Raitiaviset Organic farm ไร่เตียวิเศษ, Thaïlande",
           lat: 9.714346,
@@ -3954,7 +4063,7 @@
         {
           id: 205,
           title: "Dairy Home Organic Milk",
-          cat: "bio",
+          cat: BIO,
           city: "Bangkok",
           addr: "Dairy Home Organic Milk, Thaïlande",
           lat: 14.63161,
@@ -3968,7 +4077,7 @@
         {
           id: 206,
           title: "Phangan Community Garden",
-          cat: "bio",
+          cat: BIO,
           city: "Phuket",
           addr: "Phangan Community Garden, Thaïlande",
           lat: 9.726806,
@@ -3982,7 +4091,7 @@
         {
           id: 207,
           title: "Tungtae’s Farm Refill Store @ CM",
-          cat: "refill",
+          cat: REFILL,
           city: "Chiang Mai",
           addr: "Tungtae’s Farm Refill Store @ CM, Thaïlande",
           lat: 18.706929,
@@ -3996,7 +4105,7 @@
         {
           id: 208,
           title: "Better Moon cafe x Refill Station",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Better Moon cafe x Refill Station, Thaïlande",
           lat: 13.708199,
@@ -4010,7 +4119,7 @@
         {
           id: 209,
           title: "Apron Walk",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Apron Walk, Thaïlande",
           lat: 13.733681,
@@ -4024,7 +4133,7 @@
         {
           id: 210,
           title: "Get Well Zone",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Get Well Zone, Thaïlande",
           lat: 13.736286,
@@ -4038,7 +4147,7 @@
         {
           id: 211,
           title: "ZeroMoment Refillery",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "ZeroMoment Refillery, Thaïlande",
           lat: 13.749272,
@@ -4052,7 +4161,7 @@
         {
           id: 212,
           title: "OYO 753 Atnest Hostel",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "OYO 753 Atnest Hostel, Thaïlande",
           lat: 13.721828,
@@ -4066,7 +4175,7 @@
         {
           id: 213,
           title: "My Best Life CNX",
-          cat: "refill",
+          cat: REFILL,
           city: "Chiang Mai",
           addr: "My Best Life CNX, Thaïlande",
           lat: 18.794156,
@@ -4080,7 +4189,7 @@
         {
           id: 214,
           title: "OC Organic shop",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "OC Organic shop, Thaïlande",
           lat: 13.893054,
@@ -4094,7 +4203,7 @@
         {
           id: 215,
           title: "Hug Organic @Ecotopia",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Hug Organic @Ecotopia, Thaïlande",
           lat: 13.746788,
@@ -4108,7 +4217,7 @@
         {
           id: 216,
           title: "ร้านเติมเต็ม Refill Shoppe",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "ร้านเติมเต็ม Refill Shoppe, Thaïlande",
           lat: 14.076119,
@@ -4122,7 +4231,7 @@
         {
           id: 217,
           title: "RePlanetMe - Zero-Waste Living Products",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "RePlanetMe - Zero-Waste Living Products, Thaïlande",
           lat: 13.706223,
@@ -4136,7 +4245,7 @@
         {
           id: 218,
           title: "Sunflower / ſ",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Sunflower / ſ, Thaïlande",
           lat: 13.743821,
@@ -4150,7 +4259,7 @@
         {
           id: 219,
           title: "เติมรักษ์ refill for world TREMPAK",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "เติมรักษ์ refill for world TREMPAK, Thaïlande",
           lat: 13.676837,
@@ -4164,7 +4273,7 @@
         {
           id: 220,
           title: "Refilling Shop (Koh Phangan)",
-          cat: "refill",
+          cat: REFILL,
           city: "Phuket",
           addr: "Refilling Shop (Koh Phangan), Thaïlande",
           lat: 9.761983,
@@ -4178,7 +4287,7 @@
         {
           id: 221,
           title: "Less:Plastic:Able (refill station)",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Less:Plastic:Able (refill station), Thaïlande",
           lat: 13.719287,
@@ -4192,7 +4301,7 @@
         {
           id: 222,
           title: "Less:Plastic:Able (refill station)",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Less:Plastic:Able (refill station), Thaïlande",
           lat: 13.728228,
@@ -4206,7 +4315,7 @@
         {
           id: 223,
           title: "Grasstonomy | Clean Coffee Café",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Grasstonomy | Clean Coffee Café, Thaïlande",
           lat: 13.726417,
@@ -4220,7 +4329,7 @@
         {
           id: 224,
           title: "Veggiology",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Veggiology, Thaïlande",
           lat: 13.730499,
@@ -4234,7 +4343,7 @@
         {
           id: 225,
           title: "Siam Botanicals",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Siam Botanicals, Thaïlande",
           lat: 13.73001,
@@ -4248,7 +4357,7 @@
         {
           id: 226,
           title: "Ecofate @The Park In Market",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Ecofate @The Park In Market, Thaïlande",
           lat: 13.290512,
@@ -4262,7 +4371,7 @@
         {
           id: 227,
           title: "Mola Mola Refill @Kasetsart University",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Mola Mola Refill @Kasetsart University, Thaïlande",
           lat: 13.847569,
@@ -4276,7 +4385,7 @@
         {
           id: 228,
           title: "คาเฟ่มีรักษ์ (Cafe Merak) แยกติวานนท์",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "คาเฟ่มีรักษ์ (Cafe Merak) แยกติวานนท์, Thaïlande",
           lat: 13.84136,
@@ -4290,7 +4399,7 @@
         {
           id: 229,
           title: "Greenverdi",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Greenverdi, Thaïlande",
           lat: 13.877802,
@@ -4304,7 +4413,7 @@
         {
           id: 230,
           title: "Cube No.7",
-          cat: "refill",
+          cat: REFILL,
           city: "Chiang Mai",
           addr: "Cube No.7, Thaïlande",
           lat: 18.795234,
@@ -4318,7 +4427,7 @@
         {
           id: 231,
           title: "This & That Store Refill Station",
-          cat: "refill",
+          cat: REFILL,
           city: "Hua Hin",
           addr: "This & That Store Refill Station, Thaïlande",
           lat: 12.57163,
@@ -4332,7 +4441,7 @@
         {
           id: 232,
           title: "Zero Waste Pattani",
-          cat: "refill",
+          cat: REFILL,
           city: "Phuket",
           addr: "Zero Waste Pattani, Thaïlande",
           lat: 6.86276,
@@ -4346,7 +4455,7 @@
         {
           id: 233,
           title: "Peace of Mind by ChiangmaiCotton",
-          cat: "refill",
+          cat: REFILL,
           city: "Chiang Mai",
           addr: "Peace of Mind by ChiangmaiCotton, Thaïlande",
           lat: 18.798438,
@@ -4360,7 +4469,7 @@
         {
           id: 234,
           title: "Soap Me, Natural product and Refill station",
-          cat: "refill",
+          cat: REFILL,
           city: "Hua Hin",
           addr: "Soap Me, Natural product and Refill station, Thaïlande",
           lat: 12.57937,
@@ -4374,7 +4483,7 @@
         {
           id: 235,
           title: "Trash Hero Bottle Refill Station",
-          cat: "refill",
+          cat: REFILL,
           city: "Hua Hin",
           addr: "Trash Hero Bottle Refill Station, Thaïlande",
           lat: 11.663652,
@@ -4388,7 +4497,7 @@
         {
           id: 236,
           title: "Palang Rak Store ร้านพลังรักษ์",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Palang Rak Store ร้านพลังรักษ์, Thaïlande",
           lat: 13.79618,
@@ -4402,7 +4511,7 @@
         {
           id: 237,
           title: "FULL-FILL Vegetarian Café & Refill Store",
-          cat: "refill",
+          cat: REFILL,
           city: "Phuket",
           addr: "FULL-FILL Vegetarian Café & Refill Store, Thaïlande",
           lat: 7.544769,
@@ -4416,7 +4525,7 @@
         {
           id: 238,
           title: "INBAAN Ecolab Refill Store",
-          cat: "refill",
+          cat: REFILL,
           city: "Chiang Mai",
           addr: "INBAAN Ecolab Refill Store, Thaïlande",
           lat: 18.768546,
@@ -4430,7 +4539,7 @@
         {
           id: 239,
           title: "Organic Village",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Organic Village, Thaïlande",
           lat: 13.745208,
@@ -4444,7 +4553,7 @@
         {
           id: 240,
           title: "Normal Shop @Muji Central Chidlom",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Normal Shop @Muji Central Chidlom, Thaïlande",
           lat: 13.744065,
@@ -4458,7 +4567,7 @@
         {
           id: 241,
           title: "Refill Hub ร้านสะดวกเติม",
-          cat: "refill",
+          cat: REFILL,
           city: "Chiang Mai",
           addr: "Refill Hub ร้านสะดวกเติม, Thaïlande",
           lat: 18.808419,
@@ -4472,7 +4581,7 @@
         {
           id: 242,
           title: "Ringo & Friends",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Ringo & Friends, Thaïlande",
           lat: 13.727963,
@@ -4486,7 +4595,7 @@
         {
           id: 243,
           title: "Refilling (refill grocery shop)",
-          cat: "refill",
+          cat: REFILL,
           city: "Phuket",
           addr: "Refilling (refill grocery shop), Thaïlande",
           lat: 9.761996,
@@ -4500,7 +4609,7 @@
         {
           id: 244,
           title: "Pun Pun Organic Farm สวนพันพรรณ",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Chiang Mai",
           addr: "Pun Pun Organic Farm สวนพันพรรณ, Thaïlande",
           lat: 19.214964,
@@ -4514,7 +4623,7 @@
         {
           id: 245,
           title: "Chiang Mai Holistic",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Chiang Mai",
           addr: "Chiang Mai Holistic, Thaïlande",
           lat: 18.799183,
@@ -4528,7 +4637,7 @@
         {
           id: 246,
           title: "HQ PaperMaker & HQ Art Gallery",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Chiang Mai",
           addr: "HQ PaperMaker & HQ Art Gallery, Thaïlande",
           lat: 18.787771,
@@ -4542,7 +4651,7 @@
         {
           id: 247,
           title: "Baan Din Doi Natural Building",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Chiang Mai",
           addr: "Baan Din Doi Natural Building, Thaïlande",
           lat: 19.719097,
@@ -4556,7 +4665,7 @@
         {
           id: 248,
           title: "Sahainan Permaculture Organic Farm",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Chiang Mai",
           addr: "Sahainan Permaculture Organic Farm, Thaïlande",
           lat: 19.36739,
@@ -4570,7 +4679,7 @@
         {
           id: 249,
           title: "Daidib Daidee Permaculture Farm",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Chiang Mai",
           addr: "Daidib Daidee Permaculture Farm, Thaïlande",
           lat: 19.152721,
@@ -4584,7 +4693,7 @@
         {
           id: 250,
           title: "Rai Pruk Ruk organic farm ไร่ปลูกรัก",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Rai Pruk Ruk organic farm ไร่ปลูกรัก, Thaïlande",
           lat: 13.720187,
@@ -4598,7 +4707,7 @@
         {
           id: 251,
           title: "Rak Tamachat Permaculture",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Rak Tamachat Permaculture, Thaïlande",
           lat: 15.012992,
@@ -4612,7 +4721,7 @@
         {
           id: 252,
           title: "Permaculture Institute Thailand",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Permaculture Institute Thailand, Thaïlande",
           lat: 14.457505,
@@ -4626,7 +4735,7 @@
         {
           id: 253,
           title: "Angoon Children's Park - Mirror Foundation",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Angoon Children's Park - Mirror Foundation, Thaïlande",
           lat: 13.727293,
@@ -4640,7 +4749,7 @@
         {
           id: 254,
           title: "Get Growing Community Farm",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Get Growing Community Farm, Thaïlande",
           lat: 13.700393,
@@ -4654,7 +4763,7 @@
         {
           id: 255,
           title: "Pa Jeep farm ป้าจิ๊บฟาร์ม",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Pa Jeep farm ป้าจิ๊บฟาร์ม, Thaïlande",
           lat: 13.87616,
@@ -4668,7 +4777,7 @@
         {
           id: 256,
           title: "Grandpa Urban Farm",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Grandpa Urban Farm, Thaïlande",
           lat: 13.693672,
@@ -4682,7 +4791,7 @@
         {
           id: 257,
           title: "Uncleree Farm ฟาร์มลุงรีย์",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Uncleree Farm ฟาร์มลุงรีย์, Thaïlande",
           lat: 13.719328,
@@ -4696,7 +4805,7 @@
         {
           id: 258,
           title: "Gaia Ashram",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Gaia Ashram, Thaïlande",
           lat: 17.708695,
@@ -4710,7 +4819,7 @@
         {
           id: 259,
           title: "Suwan Organic Farmstay",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Suwan Organic Farmstay, Thaïlande",
           lat: 17.671172,
@@ -4724,7 +4833,7 @@
         {
           id: 260,
           title: "Permaculture House - Permaculture Children’s House",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Chiang Mai",
           addr: "Permaculture House - Permaculture Children’s House, Thaïlande",
           lat: 18.753633,
@@ -4738,7 +4847,7 @@
         {
           id: 261,
           title: "Ethnic Hilltribe Eco Trails",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Chiang Mai",
           addr: "Ethnic Hilltribe Eco Trails, Thaïlande",
           lat: 18.786798,
@@ -4752,7 +4861,7 @@
         {
           id: 262,
           title: "Farm de Lek",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Farm de Lek, Thaïlande",
           lat: 14.120491,
@@ -4766,7 +4875,7 @@
         {
           id: 263,
           title: "Daruma Eco-Farm",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Daruma Eco-Farm, Thaïlande",
           lat: 13.237011,
@@ -4780,7 +4889,7 @@
         {
           id: 264,
           title: "Bangkok Permaculture",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Hua Hin",
           addr: "Bangkok Permaculture, Thaïlande",
           lat: 12.465727,
@@ -4794,7 +4903,7 @@
         {
           id: 265,
           title: "Our Land - A Nature Conservation Effort",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Our Land - A Nature Conservation Effort, Thaïlande",
           lat: 14.144301,
@@ -4808,7 +4917,7 @@
         {
           id: 266,
           title: "Hom Cooking Hostel",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Hom Cooking Hostel, Thaïlande",
           lat: 13.742479,
@@ -4822,7 +4931,7 @@
         {
           id: 267,
           title: "Patom Organic Village @ Suan Sampran",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Patom Organic Village @ Suan Sampran, Thaïlande",
           lat: 13.734954,
@@ -4836,7 +4945,7 @@
         {
           id: 268,
           title: "Patom Organic Farm @ Suan Sampran",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Patom Organic Farm @ Suan Sampran, Thaïlande",
           lat: 13.735538,
@@ -4850,7 +4959,7 @@
         {
           id: 269,
           title: "Suananda Ayurveda Wellness Centre",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Suananda Ayurveda Wellness Centre, Thaïlande",
           lat: 13.722928,
@@ -4864,7 +4973,7 @@
         {
           id: 270,
           title: "Pooh Eco Trekking",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Chiang Mai",
           addr: "Pooh Eco Trekking, Thaïlande",
           lat: 18.795162,
@@ -4878,7 +4987,7 @@
         {
           id: 271,
           title: "PEPPERMINT BIKE PARK",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "PEPPERMINT BIKE PARK, Thaïlande",
           lat: 13.817035,
@@ -4892,7 +5001,7 @@
         {
           id: 272,
           title: "Sukhothai Bicycle Tour",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Sukhothai Bicycle Tour, Thaïlande",
           lat: 17.009948,
@@ -4906,7 +5015,7 @@
         {
           id: 273,
           title: "Happy and Healthy Bike Lane",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Happy and Healthy Bike Lane, Thaïlande",
           lat: 13.711294,
@@ -4920,7 +5029,7 @@
         {
           id: 274,
           title: "Earth Home Thailand (Maejo Baandin) แม่โจ้บ้านดิน",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Chiang Mai",
           addr: "Earth Home Thailand (Maejo Baandin) แม่โจ้บ้านดิน, Thaïlande",
           lat: 19.215471,
@@ -4934,7 +5043,7 @@
         {
           id: 275,
           title: "Araksa Tea Garden",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Chiang Mai",
           addr: "Araksa Tea Garden, Thaïlande",
           lat: 19.190724,
@@ -4948,7 +5057,7 @@
         {
           id: 276,
           title: "Bangkok Rooftop Farming - ฟาร์มบนดาดฟ้า",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Bangkok Rooftop Farming - ฟาร์มบนดาดฟ้า, Thaïlande",
           lat: 13.763897,
@@ -4962,7 +5071,7 @@
         {
           id: 277,
           title: "Ginger Farm @  CM",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Chiang Mai",
           addr: "Ginger Farm @  CM, Thaïlande",
           lat: 18.724474,
@@ -4976,7 +5085,7 @@
         {
           id: 278,
           title: "Jim Thompson Farm",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Jim Thompson Farm, Thaïlande",
           lat: 14.642545,
@@ -4990,7 +5099,7 @@
         {
           id: 279,
           title: "Chengcheu Permaculture Farm",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Chengcheu Permaculture Farm, Thaïlande",
           lat: 13.69463,
@@ -5004,7 +5113,7 @@
         {
           id: 280,
           title: "โลวาฬฟาร์ม Lovan Natural Farm",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "โลวาฬฟาร์ม Lovan Natural Farm, Thaïlande",
           lat: 13.535409,
@@ -5018,7 +5127,7 @@
         {
           id: 281,
           title: "LABracadabra",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Phuket",
           addr: "LABracadabra, Thaïlande",
           lat: 9.753651,
@@ -5032,7 +5141,7 @@
         {
           id: 282,
           title: "NatureMind-ED",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Phuket",
           addr: "NatureMind-ED, Thaïlande",
           lat: 8.081732,
@@ -5046,7 +5155,7 @@
         {
           id: 283,
           title: "Nam Pha Pa Yai Climbers' Camp",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Nam Pha Pa Yai Climbers' Camp, Thaïlande",
           lat: 14.698431,
@@ -5060,7 +5169,7 @@
         {
           id: 284,
           title: "Fair Earth Farm",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Chiang Mai",
           addr: "Fair Earth Farm, Thaïlande",
           lat: 18.894654,
@@ -5074,7 +5183,7 @@
         {
           id: 285,
           title: "Treasure Factory 39",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Treasure Factory 39, Thaïlande",
           lat: 13.734798,
@@ -5088,7 +5197,7 @@
         {
           id: 286,
           title: "Treasure Factory Phrakhanong",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Treasure Factory Phrakhanong, Thaïlande",
           lat: 13.714293,
@@ -5102,7 +5211,7 @@
         {
           id: 287,
           title: "Tokyo Joe",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Tokyo Joe, Thaïlande",
           lat: 13.731098,
@@ -5116,7 +5225,7 @@
         {
           id: 288,
           title: "The Remaker สามพิม จำกัด",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "The Remaker สามพิม จำกัด, Thaïlande",
           lat: 13.692503,
@@ -5130,7 +5239,7 @@
         {
           id: 289,
           title: "Eco Ring (Thailand) Co., Ltd. - Tree on 3 (Rama3)",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Eco Ring (Thailand) Co., Ltd. - Tree on 3 (Rama3), Thaïlande",
           lat: 13.691054,
@@ -5144,7 +5253,7 @@
         {
           id: 290,
           title: "Eco Ring (Thailand) Co., Ltd. Bangbon Warehouse",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Eco Ring (Thailand) Co., Ltd. Bangbon Warehouse, Thaïlande",
           lat: 13.67231,
@@ -5158,7 +5267,7 @@
         {
           id: 291,
           title: "Eco Ring (Thailand) Co., Ltd. - Suanplern Market(Rama4)",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Eco Ring (Thailand) Co., Ltd. - Suanplern Market(Rama4), Thaïlande",
           lat: 13.716677,
@@ -5172,7 +5281,7 @@
         {
           id: 292,
           title: "Eco Ring (Thailand) Co., Ltd. Sukhumvit 49 Branch",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Eco Ring (Thailand) Co., Ltd. Sukhumvit 49 Branch, Thaïlande",
           lat: 13.727606,
@@ -5186,7 +5295,7 @@
         {
           id: 293,
           title: "Eco Ring People Park Onnuch",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Eco Ring People Park Onnuch, Thaïlande",
           lat: 13.711319,
@@ -5200,7 +5309,7 @@
         {
           id: 294,
           title: "PAPAYA Design Furniture & Studio",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "PAPAYA Design Furniture & Studio, Thaïlande",
           lat: 13.793981,
@@ -5214,7 +5323,7 @@
         {
           id: 295,
           title: "Lost&Found Store",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Lost&Found Store, Thaïlande",
           lat: 13.726551,
@@ -5228,7 +5337,7 @@
         {
           id: 296,
           title: "(un)FASHION Vintage Collection",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "(un)FASHION Vintage Collection, Thaïlande",
           lat: 13.729395,
@@ -5242,7 +5351,7 @@
         {
           id: 297,
           title: "Machine Age Workshop / IG: workmanship_generalstore",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Machine Age Workshop / IG: workmanship_generalstore, Thaïlande",
           lat: 13.735032,
@@ -5256,7 +5365,7 @@
         {
           id: 298,
           title: "Y50",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Y50, Thaïlande",
           lat: 13.738551,
@@ -5270,7 +5379,7 @@
         {
           id: 299,
           title: "Again & Again Vintage",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Again & Again Vintage, Thaïlande",
           lat: 13.716555,
@@ -5284,7 +5393,7 @@
         {
           id: 300,
           title: "Japan Life Center สินค้าญี่ปุ่นมือสอง",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Japan Life Center สินค้าญี่ปุ่นมือสอง, Thaïlande",
           lat: 13.958459,
@@ -5298,7 +5407,7 @@
         {
           id: 301,
           title: "Hatori Japan ฮาโตริเจแปน",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Hatori Japan ฮาโตริเจแปน, Thaïlande",
           lat: 13.87344,
@@ -5312,7 +5421,7 @@
         {
           id: 302,
           title: "Japanreuse สินค้ามือสองญี่ปุ่น",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Japanreuse สินค้ามือสองญี่ปุ่น, Thaïlande",
           lat: 13.710657,
@@ -5326,7 +5435,7 @@
         {
           id: 303,
           title: "Shinjuku Outlet @ Lat Phrao",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Shinjuku Outlet @ Lat Phrao, Thaïlande",
           lat: 13.794573,
@@ -5340,7 +5449,7 @@
         {
           id: 304,
           title: "Shinjuku Outlet @ Ramkhamhaeng",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Shinjuku Outlet @ Ramkhamhaeng, Thaïlande",
           lat: 13.760493,
@@ -5354,7 +5463,7 @@
         {
           id: 305,
           title: "Shinjuku Outlet @ Krung Thep Kritha",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Shinjuku Outlet @ Krung Thep Kritha, Thaïlande",
           lat: 13.73907,
@@ -5368,7 +5477,7 @@
         {
           id: 306,
           title: "Kenji Uncle ร้านลุงเคนจิ สินค้าญี่ปุ่น",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Kenji Uncle ร้านลุงเคนจิ สินค้าญี่ปุ่น, Thaïlande",
           lat: 13.850171,
@@ -5382,7 +5491,7 @@
         {
           id: 307,
           title: "Sukhumvit 49 USED&SERVICE มือสองญี่ปุ่น",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Sukhumvit 49 USED&SERVICE มือสองญี่ปุ่น, Thaïlande",
           lat: 13.727469,
@@ -5396,7 +5505,7 @@
         {
           id: 308,
           title: "Pang Pang Japan Warehouse @ Bang Bon 5",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pang Pang Japan Warehouse @ Bang Bon 5, Thaïlande",
           lat: 13.65161,
@@ -5410,7 +5519,7 @@
         {
           id: 309,
           title: "Toro Secondhand Market",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Chiang Mai",
           addr: "Toro Secondhand Market, Thaïlande",
           lat: 18.799036,
@@ -5424,7 +5533,7 @@
         {
           id: 310,
           title: "Dasa Book Cafe",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Dasa Book Cafe, Thaïlande",
           lat: 13.728577,
@@ -5438,7 +5547,7 @@
         {
           id: 311,
           title: "Bookshop 2557 Second-hand",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Bookshop 2557 Second-hand, Thaïlande",
           lat: 13.799818,
@@ -5452,7 +5561,7 @@
         {
           id: 312,
           title: "THE 2nd BIKE",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "THE 2nd BIKE, Thaïlande",
           lat: 13.705944,
@@ -5466,7 +5575,7 @@
         {
           id: 313,
           title: "CTM center",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "CTM center, Thaïlande",
           lat: 13.742665,
@@ -5480,7 +5589,7 @@
         {
           id: 314,
           title: "Central Thailand Missions Donation Center",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Central Thailand Missions Donation Center, Thaïlande",
           lat: 13.677817,
@@ -5494,7 +5603,7 @@
         {
           id: 315,
           title: "Second Chance Bangkok",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Second Chance Bangkok, Thaïlande",
           lat: 13.713485,
@@ -5508,7 +5617,7 @@
         {
           id: 316,
           title: "The Mirror Foundation - มูลนิธิกระจกเงา",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "The Mirror Foundation - มูลนิธิกระจกเงา, Thaïlande",
           lat: 13.868528,
@@ -5522,7 +5631,7 @@
         {
           id: 317,
           title: "Bangkok Refugee Center",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Bangkok Refugee Center, Thaïlande",
           lat: 13.818845,
@@ -5536,7 +5645,7 @@
         {
           id: 318,
           title: "Miraibrary มูลนิธิสิกขาเอเซีย",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Miraibrary มูลนิธิสิกขาเอเซีย, Thaïlande",
           lat: 13.709813,
@@ -5550,7 +5659,7 @@
         {
           id: 319,
           title: "Mercy Center Main Office",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Mercy Center Main Office, Thaïlande",
           lat: 13.710135,
@@ -5564,7 +5673,7 @@
         {
           id: 320,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.694422,
@@ -5578,7 +5687,7 @@
         {
           id: 321,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.712289,
@@ -5592,7 +5701,7 @@
         {
           id: 322,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.637256,
@@ -5606,7 +5715,7 @@
         {
           id: 323,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.815836,
@@ -5620,7 +5729,7 @@
         {
           id: 324,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.748017,
@@ -5634,7 +5743,7 @@
         {
           id: 325,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.866295,
@@ -5648,7 +5757,7 @@
         {
           id: 326,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.741272,
@@ -5662,7 +5771,7 @@
         {
           id: 327,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.879327,
@@ -5676,7 +5785,7 @@
         {
           id: 328,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.993924,
@@ -5690,7 +5799,7 @@
         {
           id: 329,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.785199,
@@ -5704,7 +5813,7 @@
         {
           id: 330,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.68759,
@@ -5718,7 +5827,7 @@
         {
           id: 331,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.989179,
@@ -5732,7 +5841,7 @@
         {
           id: 332,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.939992,
@@ -5746,7 +5855,7 @@
         {
           id: 333,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.789674,
@@ -5760,7 +5869,7 @@
         {
           id: 334,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.583549,
@@ -5774,7 +5883,7 @@
         {
           id: 335,
           title: "Pankan Donate & Shop",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Pankan Donate & Shop, Thaïlande",
           lat: 13.897112,
@@ -5788,7 +5897,7 @@
         {
           id: 336,
           title: "บ้านพระคุณ Home Of Grace",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "บ้านพระคุณ Home Of Grace, Thaïlande",
           lat: 13.644842,
@@ -5802,7 +5911,7 @@
         {
           id: 337,
           title: "Recycle For Kids โครงการเหลือขอ by Baan Nokkamin Foundation",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Recycle For Kids โครงการเหลือขอ by Baan Nokkamin Foundation, Thaïlande",
           lat: 13.775744,
@@ -5816,7 +5925,7 @@
         {
           id: 338,
           title: "Go Happiness Centre",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Go Happiness Centre, Thaïlande",
           lat: 13.707042,
@@ -5830,7 +5939,7 @@
         {
           id: 339,
           title: "Khlong Toey Music Program",
-          cat: "seconde",
+          cat: SECONDE,
           city: "Bangkok",
           addr: "Khlong Toey Music Program, Thaïlande",
           lat: 13.711139,
@@ -5844,7 +5953,7 @@
         {
           id: 340,
           title: "E-Waste at Old Mobiles to New Life Foundation",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "E-Waste at Old Mobiles to New Life Foundation, Thaïlande",
           lat: 13.723777,
@@ -5858,7 +5967,7 @@
         {
           id: 341,
           title: "E-Waste at Klong Toey District Office",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "E-Waste at Klong Toey District Office, Thaïlande",
           lat: 13.7082,
@@ -5872,7 +5981,7 @@
         {
           id: 342,
           title: "E-Waste AIS Shop Siam Paragon",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "E-Waste AIS Shop Siam Paragon, Thaïlande",
           lat: 13.746249,
@@ -5886,7 +5995,7 @@
         {
           id: 343,
           title: "E-Waste AIS-Fashion Island",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "E-Waste AIS-Fashion Island, Thaïlande",
           lat: 13.826111,
@@ -5901,7 +6010,7 @@
           id: 344,
           title:
             "E-Waste at Center of Excellence on Hazardous Substance Management, HSM",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "E-Waste at Center of Excellence on Hazardous Substance Management, HSM, Thaïlande",
           lat: 13.742697,
@@ -5915,7 +6024,7 @@
         {
           id: 345,
           title: "E-Waste at Pollution Control Department",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "E-Waste at Pollution Control Department, Thaïlande",
           lat: 13.784462,
@@ -5929,7 +6038,7 @@
         {
           id: 346,
           title: "E-Waste at Wat Suan Kaew",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "E-Waste at Wat Suan Kaew, Thaïlande",
           lat: 13.861821,
@@ -5943,7 +6052,7 @@
         {
           id: 347,
           title: "E-Waste and Hazardous @Emporium",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "E-Waste and Hazardous @Emporium, Thaïlande",
           lat: 13.730161,
@@ -5957,7 +6066,7 @@
         {
           id: 348,
           title: "Fiber Pattana co. Ltd",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Fiber Pattana co. Ltd, Thaïlande",
           lat: 13.62151,
@@ -5971,7 +6080,7 @@
         {
           id: 349,
           title: "Glass Bottle Recycling-ชาญสิน รีไซเคิล Chansin Recycle (CSR)",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Glass Bottle Recycling-ชาญสิน รีไซเคิล Chansin Recycle (CSR), Thaïlande",
           lat: 13.667248,
@@ -5985,7 +6094,7 @@
         {
           id: 350,
           title: "Faculty of Architecture Kasetsart University",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Faculty of Architecture Kasetsart University, Thaïlande",
           lat: 13.853253,
@@ -5999,7 +6108,7 @@
         {
           id: 351,
           title: "Recycle Collection Center @Siam Paragon",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Recycle Collection Center @Siam Paragon, Thaïlande",
           lat: 13.746241,
@@ -6013,7 +6122,7 @@
         {
           id: 352,
           title: "Precious Plastic Drop-off - Berkeley International School",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - Berkeley International School, Thaïlande",
           lat: 13.672343,
@@ -6028,7 +6137,7 @@
           id: 353,
           title:
             "Precious Plastic Drop-off - RBIS Rasami British International School โรงเรียนนานาชาติระบบอังกฤษ",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - RBIS Rasami British International School โรงเรียนนานาชาติระบบอังกฤษ, Thaïlande",
           lat: 13.766279,
@@ -6042,7 +6151,7 @@
         {
           id: 354,
           title: "Precious Plastic Drop-off - Get Well Zone",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - Get Well Zone, Thaïlande",
           lat: 13.736279,
@@ -6057,7 +6166,7 @@
           id: 355,
           title:
             "Precious Plastic Drop-off - Dice! Cafe - Boardgames & Coworking",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - Dice! Cafe - Boardgames & Coworking, Thaïlande",
           lat: 13.781344,
@@ -6071,7 +6180,7 @@
         {
           id: 356,
           title: "Precious Plastic Drop-off - The COMMONS",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - The COMMONS, Thaïlande",
           lat: 13.734989,
@@ -6086,7 +6195,7 @@
           id: 357,
           title:
             "Precious Plastic Drop-off - Singapore International School of Bangkok",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - Singapore International School of Bangkok, Thaïlande",
           lat: 13.7703,
@@ -6100,7 +6209,7 @@
         {
           id: 358,
           title: "Precious Plastic Drop-off - The Mall Bangkapi",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - The Mall Bangkapi, Thaïlande",
           lat: 13.766056,
@@ -6114,7 +6223,7 @@
         {
           id: 359,
           title: "Precious Plastic Drop-off - OC Organic shop",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - OC Organic shop, Thaïlande",
           lat: 13.893054,
@@ -6128,7 +6237,7 @@
         {
           id: 360,
           title: "Precious Plastic Drop-off - ITC Bangkok Co.,Ltd.",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - ITC Bangkok Co.,Ltd., Thaïlande",
           lat: 13.909358,
@@ -6142,7 +6251,7 @@
         {
           id: 361,
           title: "Precious Plastic Drop-off - EmQuartier",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - EmQuartier, Thaïlande",
           lat: 13.732006,
@@ -6156,7 +6265,7 @@
         {
           id: 362,
           title: "Precious Plastic Drop-off - The Jam Factory",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - The Jam Factory, Thaïlande",
           lat: 13.72937,
@@ -6170,7 +6279,7 @@
         {
           id: 363,
           title: "Precious Plastic Drop-off - White Mouse Bar & Cafe",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - White Mouse Bar & Cafe, Thaïlande",
           lat: 13.744106,
@@ -6184,7 +6293,7 @@
         {
           id: 364,
           title: "Precious Plastic Drop-off - Broccoli Revolution",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - Broccoli Revolution, Thaïlande",
           lat: 13.726695,
@@ -6198,7 +6307,7 @@
         {
           id: 365,
           title: "Precious Plastic Drop-off - Refill Station ปั๊มน้ำยา",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - Refill Station ปั๊มน้ำยา, Thaïlande",
           lat: 13.708086,
@@ -6212,7 +6321,7 @@
         {
           id: 366,
           title: "Wat Chak Daeng",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Wat Chak Daeng, Thaïlande",
           lat: 13.662627,
@@ -6226,7 +6335,7 @@
         {
           id: 367,
           title: "PakDone (ผักDone)",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "PakDone (ผักDone), Thaïlande",
           lat: 14.017977,
@@ -6240,7 +6349,7 @@
         {
           id: 368,
           title: "WON PROJECT by TPBI Public Company Limited",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "WON PROJECT by TPBI Public Company Limited, Thaïlande",
           lat: 13.718052,
@@ -6254,7 +6363,7 @@
         {
           id: 369,
           title: "Won Project Plastic Bag Drop-off - Theera Healthy Bake Room",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Won Project Plastic Bag Drop-off - Theera Healthy Bake Room, Thaïlande",
           lat: 13.714972,
@@ -6269,7 +6378,7 @@
           id: 370,
           title:
             "Won Project Plastic Bag Drop-off - Bangkok Farmers' Market (Gateway Ekamai)",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Won Project Plastic Bag Drop-off - Bangkok Farmers' Market (Gateway Ekamai), Thaïlande",
           lat: 13.719183,
@@ -6283,7 +6392,7 @@
         {
           id: 371,
           title: "Won Project Plastic Bag Drop-off - Make A Trip Co., Ltd.",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Won Project Plastic Bag Drop-off - Make A Trip Co., Ltd., Thaïlande",
           lat: 13.752881,
@@ -6297,7 +6406,7 @@
         {
           id: 372,
           title: "Won Project Plastic Bag Drop-off - Divine Yoga",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Won Project Plastic Bag Drop-off - Divine Yoga, Thaïlande",
           lat: 13.733597,
@@ -6312,7 +6421,7 @@
           id: 373,
           title:
             "Won Project Plastic Bag Drop-off - Teddy’s Burgers Sukhumvit49",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Won Project Plastic Bag Drop-off - Teddy’s Burgers Sukhumvit49, Thaïlande",
           lat: 13.733047,
@@ -6326,7 +6435,7 @@
         {
           id: 374,
           title: "Won Project Plastic Bag Drop-off - Veggiology",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Won Project Plastic Bag Drop-off - Veggiology, Thaïlande",
           lat: 13.730355,
@@ -6340,7 +6449,7 @@
         {
           id: 375,
           title: "Won Project Plastic Bag Drop-off - Hom Cooking Hostel",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Won Project Plastic Bag Drop-off - Hom Cooking Hostel, Thaïlande",
           lat: 13.742479,
@@ -6354,7 +6463,7 @@
         {
           id: 376,
           title: "Won Project Plastic Bag Drop-off - RISC",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Won Project Plastic Bag Drop-off - RISC, Thaïlande",
           lat: 13.742629,
@@ -6369,7 +6478,7 @@
           id: 377,
           title:
             "Won Project Plastic Bag Drop-off - AfterRun Cafe คาเฟ่นักวิ่ง วิ่งแล้วกินอะไรก็ได้",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Won Project Plastic Bag Drop-off - AfterRun Cafe คาเฟ่นักวิ่ง วิ่งแล้วกินอะไรก็ได้, Thaïlande",
           lat: 13.734515,
@@ -6383,7 +6492,7 @@
         {
           id: 378,
           title: "Won Project Plastic Bag Drop-off- WOLF COWORKING SPACE",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Won Project Plastic Bag Drop-off- WOLF COWORKING SPACE, Thaïlande",
           lat: 13.721266,
@@ -6398,7 +6507,7 @@
           id: 379,
           title:
             "Won Project Plastic Bag Drop-off - Electricity Generating Authority of Thailand",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Won Project Plastic Bag Drop-off - Electricity Generating Authority of Thailand, Thaïlande",
           lat: 13.81039,
@@ -6412,7 +6521,7 @@
         {
           id: 380,
           title: "Won Project Plastic Bag Drop-Off - Midsummer Cafe",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Won Project Plastic Bag Drop-Off - Midsummer Cafe, Thaïlande",
           lat: 13.82788,
@@ -6427,7 +6536,7 @@
           id: 381,
           title:
             "Won Project Plastic Bag Drop-off - Provincial Electricity Authority (Headquarters)",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Won Project Plastic Bag Drop-off - Provincial Electricity Authority (Headquarters), Thaïlande",
           lat: 13.850805,
@@ -6442,7 +6551,7 @@
           id: 382,
           title:
             "Won Project Plastic Bag Drop-off - Thailand Post Company Limited",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Won Project Plastic Bag Drop-off - Thailand Post Company Limited, Thaïlande",
           lat: 13.88236,
@@ -6456,7 +6565,7 @@
         {
           id: 383,
           title: "Zero Bath Shop",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Zero Bath Shop, Thaïlande",
           lat: 13.708429,
@@ -6470,7 +6579,7 @@
         {
           id: 384,
           title: "UFM Fuji Super (Branch 1)",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "UFM Fuji Super (Branch 1), Thaïlande",
           lat: 13.73295,
@@ -6484,7 +6593,7 @@
         {
           id: 385,
           title: "Dr. MacBook Thailand",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Dr. MacBook Thailand, Thaïlande",
           lat: 13.739358,
@@ -6498,7 +6607,7 @@
         {
           id: 386,
           title: "Dr. Smartphone Thailand",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Dr. Smartphone Thailand, Thaïlande",
           lat: 13.739367,
@@ -6512,7 +6621,7 @@
         {
           id: 387,
           title: "Servicegenie Co., Ltd.",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Servicegenie Co., Ltd., Thaïlande",
           lat: 13.711674,
@@ -6526,7 +6635,7 @@
         {
           id: 388,
           title: "MBK Center",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "MBK Center, Thaïlande",
           lat: 13.744754,
@@ -6540,7 +6649,7 @@
         {
           id: 389,
           title: "Raan Jampben จำเป็นบิวตี้",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Raan Jampben จำเป็นบิวตี้, Thaïlande",
           lat: 13.713528,
@@ -6554,7 +6663,7 @@
         {
           id: 390,
           title: "Tae Kim Huad",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Tae Kim Huad, Thaïlande",
           lat: 13.706149,
@@ -6568,7 +6677,7 @@
         {
           id: 391,
           title: "K.A.N Computer",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Hua Hin",
           addr: "K.A.N Computer, Thaïlande",
           lat: 12.568945,
@@ -6582,7 +6691,7 @@
         {
           id: 392,
           title: "Repair shop ร้านช่างยุทธ ซ่อมเครื่องใช้ไฟฟ้าทุกชนิด",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Repair shop ร้านช่างยุทธ ซ่อมเครื่องใช้ไฟฟ้าทุกชนิด, Thaïlande",
           lat: 13.720843,
@@ -6596,7 +6705,7 @@
         {
           id: 393,
           title: "Precious Plastic Drop-off - Bad Habit TH - Refill Station",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - Bad Habit TH - Refill Station, Thaïlande",
           lat: 13.809744,
@@ -6610,7 +6719,7 @@
         {
           id: 394,
           title: "Precious Plastic Drop-off - Brighton College Bangkok",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - Brighton College Bangkok, Thaïlande",
           lat: 13.754752,
@@ -6624,7 +6733,7 @@
         {
           id: 395,
           title: "Precious Plastic Drop-off - Chakrabongse Villas",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - Chakrabongse Villas, Thaïlande",
           lat: 13.743679,
@@ -6638,7 +6747,7 @@
         {
           id: 396,
           title: "Precious Plastic Drop-off - Charter International School",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - Charter International School, Thaïlande",
           lat: 13.711175,
@@ -6652,7 +6761,7 @@
         {
           id: 397,
           title: "Precious Plastic Drop-off - IPC International Kindergarten",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - IPC International Kindergarten, Thaïlande",
           lat: 13.743229,
@@ -6666,7 +6775,7 @@
         {
           id: 398,
           title: "Precious Plastic Drop-off - IT'S SARA อิสระ สระบุรี",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - IT'S SARA อิสระ สระบุรี, Thaïlande",
           lat: 14.40594,
@@ -6680,7 +6789,7 @@
         {
           id: 399,
           title: "Precious Plastic Drop-off - The Mall Bangkae",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - The Mall Bangkae, Thaïlande",
           lat: 13.713069,
@@ -6694,7 +6803,7 @@
         {
           id: 400,
           title: "Precious Plastic Drop-off - KKinn South Pattaya",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Hua Hin",
           addr: "Precious Plastic Drop-off - KKinn South Pattaya, Thaïlande",
           lat: 12.925039,
@@ -6708,7 +6817,7 @@
         {
           id: 401,
           title: "Precious Plastic Drop-off - The Peninsula Plaza Bangkok",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - The Peninsula Plaza Bangkok, Thaïlande",
           lat: 13.741963,
@@ -6722,7 +6831,7 @@
         {
           id: 402,
           title: "Precious Plastic Drop-off - Precious Plastic Bangkok",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - Precious Plastic Bangkok, Thaïlande",
           lat: 13.757153,
@@ -6736,7 +6845,7 @@
         {
           id: 403,
           title: "Precious Plastic Drop-off - The Quarter Wutthakat",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - The Quarter Wutthakat, Thaïlande",
           lat: 13.712936,
@@ -6750,7 +6859,7 @@
         {
           id: 404,
           title: "Precious Plastic Drop-off - Gourmet Market Siam Paragon",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - Gourmet Market Siam Paragon, Thaïlande",
           lat: 13.747537,
@@ -6764,7 +6873,7 @@
         {
           id: 405,
           title: "Precious Plastic Drop-off - Seeds & Sunshine",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - Seeds & Sunshine, Thaïlande",
           lat: 13.731399,
@@ -6778,7 +6887,7 @@
         {
           id: 406,
           title: "Precious Plastic Drop-off - Tara House",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - Tara House, Thaïlande",
           lat: 13.746232,
@@ -6792,7 +6901,7 @@
         {
           id: 407,
           title: "Precious Plastic Drop-off - U EAT UP Thai Food",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - U EAT UP Thai Food, Thaïlande",
           lat: 13.710271,
@@ -6806,7 +6915,7 @@
         {
           id: 408,
           title: "Precious Plastic Drop-off - The Mall Korat",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precious Plastic Drop-off - The Mall Korat, Thaïlande",
           lat: 14.980669,
@@ -6820,7 +6929,7 @@
         {
           id: 409,
           title: "Precisous Plastic Drop-off - ร้านมิลเจริญเฟอร์นิเจอร์",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Precisous Plastic Drop-off - ร้านมิลเจริญเฟอร์นิเจอร์, Thaïlande",
           lat: 15.794524,
@@ -6834,7 +6943,7 @@
         {
           id: 410,
           title: "Trash Lucky",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Trash Lucky, Thaïlande",
           lat: 13.683862,
@@ -6848,7 +6957,7 @@
         {
           id: 411,
           title: "Recycling Center บจก. สถานีรีไซเคิล วงษ์พาณิชย์ สุวรรณภูมิ",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Recycling Center บจก. สถานีรีไซเคิล วงษ์พาณิชย์ สุวรรณภูมิ, Thaïlande",
           lat: 13.721484,
@@ -6862,7 +6971,7 @@
         {
           id: 412,
           title: "ศูนย์รีไซเคิล แสนสบาย Soon sabai Recycling Centre",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "ศูนย์รีไซเคิล แสนสบาย Soon sabai Recycling Centre, Thaïlande",
           lat: 13.719346,
@@ -6876,7 +6985,7 @@
         {
           id: 413,
           title: "Recycling point @IKEA",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Recycling point @IKEA, Thaïlande",
           lat: 13.644438,
@@ -6890,7 +6999,7 @@
         {
           id: 414,
           title: "Cosmetic Recycle Station @Siam Discovery",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Cosmetic Recycle Station @Siam Discovery, Thaïlande",
           lat: 13.746882,
@@ -6904,7 +7013,7 @@
         {
           id: 415,
           title: "Battery Disposal in the Chamchuri Square Lobby",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Battery Disposal in the Chamchuri Square Lobby, Thaïlande",
           lat: 13.732935,
@@ -6918,7 +7027,7 @@
         {
           id: 416,
           title: "Plastic Recycling at Corsair Bangkok Co.,Ltd (Factory)",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Plastic Recycling at Corsair Bangkok Co.,Ltd (Factory), Thaïlande",
           lat: 14.008823,
@@ -6933,7 +7042,7 @@
           id: 417,
           title:
             "Plastic Recycling Drive Thru at Panyapiwat Institute of Management",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Plastic Recycling Drive Thru at Panyapiwat Institute of Management, Thaïlande",
           lat: 13.901721,
@@ -6947,7 +7056,7 @@
         {
           id: 418,
           title: "Recyclable items drop point",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Recyclable items drop point, Thaïlande",
           lat: 13.803212,
@@ -6961,7 +7070,7 @@
         {
           id: 419,
           title: "Recyclable items drop point",
-          cat: "reparation",
+          cat: REPARATION,
           city: "Bangkok",
           addr: "Recyclable items drop point, Thaïlande",
           lat: 13.179882,
@@ -6978,7 +7087,7 @@
         {
           id: 1,
           title: "Zéro Déchet Thaïlande",
-          cat: "refill",
+          cat: REFILL,
           city: "Bangkok",
           addr: "Bangkok, Thaïlande",
           lat: 13.756,
@@ -6992,7 +7101,7 @@
         {
           id: 2,
           title: "La Fresque du Climat Thaïlande",
-          cat: "education",
+          cat: EDUCATION,
           city: "Bangkok",
           addr: "Bangkok (sur demande)",
           lat: 13.738,
@@ -7006,7 +7115,7 @@
         {
           id: 3,
           title: "Biodiversity Collage Thaïlande",
-          cat: "education",
+          cat: EDUCATION,
           city: "Bangkok",
           addr: "Bangkok (sur demande)",
           lat: 13.742,
@@ -7020,7 +7129,7 @@
         {
           id: 4,
           title: "Trash Hero Thailand",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Réseau national",
           lat: 13.749,
@@ -7034,7 +7143,7 @@
         {
           id: 5,
           title: "Climate Café Bangkok",
-          cat: "education",
+          cat: EDUCATION,
           city: "Bangkok",
           addr: "Divers cafés, Bangkok",
           lat: 13.74,
@@ -7048,7 +7157,7 @@
         {
           id: 6,
           title: "Thailand Environment Institute",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Muang Thong Thani, Nonthaburi",
           lat: 13.877,
@@ -7062,7 +7171,7 @@
         {
           id: 7,
           title: "Bang Khun Thian — Forêt de Mangrove",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Bangkok",
           addr: "Bang Khun Thian, Bangkok",
           lat: 13.647,
@@ -7076,7 +7185,7 @@
         {
           id: 8,
           title: "Jobs That Make Sense",
-          cat: "emploi",
+          cat: EMPLOI,
           city: "Bangkok",
           addr: "En ligne",
           lat: 13.746,
@@ -7090,7 +7199,7 @@
         {
           id: 9,
           title: "Sustainable Maikhao",
-          cat: "engager",
+          cat: ENGAGER,
           city: "Phuket",
           addr: "Maikhao Beach, Phuket",
           lat: 8.193,
@@ -7104,7 +7213,7 @@
         {
           id: 10,
           title: "Little Legend Nature Play",
-          cat: "enfants",
+          cat: ENFANT_NATURE,
           city: "Chiang Mai",
           addr: "Chiang Mai",
           lat: 18.788,
@@ -7118,7 +7227,7 @@
         {
           id: 11,
           title: "Now It\'s Yours",
-          cat: "seconde",
+          cat: SECONDE,
           city: ["Bangkok", "En ligne"],
           addr: "Thonglor, Bangkok",
           lat: 13.731,
@@ -7132,7 +7241,7 @@
         {
           id: 50,
           title: "Yindee",
-          cat: "dechets",
+          cat: REFILL,
           city: ["Bangkok", "En ligne"],
           addr: "En ligne",
           lat: 13.75,
@@ -7146,7 +7255,7 @@
         {
           id: 51,
           title: "Good Karma Health Food",
-          cat: "bio",
+          cat: BIO,
           city: ["Bangkok", "En ligne"],
           addr: "En ligne",
           lat: 13.75,
@@ -7163,7 +7272,7 @@
 
       const CATS = [
         {
-          id: "bio",
+          id: BIO,
           label: "Alimentation bio et locale",
           color: "#3d9422",
           bg: "#e8f5e0",
@@ -7176,7 +7285,7 @@
           },
         },
         {
-          id: "produits",
+          id: PRODUITS,
           label: "Produits durables",
           color: "#c9830a",
           bg: "#fef3c7",
@@ -7521,14 +7630,14 @@
           const safeInitials = escapeHTML(c.initials);
           const safePhoto = safeExternalUrl(c.photo, { allowDataImage: true });
           return `
-    <div class="cand-row">
-      <div class="cand-header" onclick="toggleBio(${i})">
-        <div class="cand-avatar">${safePhoto ? `<img src="${safePhoto}" alt="${safeName}"/>` : safeInitials}</div>
-        <div><div class="cand-name">${safeName}</div><div class="cand-role">${safeRole}</div></div>
-        <span class="cand-toggle" id="ct-${i}">▼</span>
-      </div>
-      <div class="cand-bio" id="cb-${i}">${safeBio}</div>
-    </div>`;
+                  <div class="cand-row">
+                    <div class="cand-header" onclick="toggleBio(${i})">
+                      <div class="cand-avatar">${safePhoto ? `<img src="${safePhoto}" alt="${safeName}"/>` : safeInitials}</div>
+                      <div><div class="cand-name">${safeName}</div><div class="cand-role">${safeRole}</div></div>
+                      <span class="cand-toggle" id="ct-${i}">▼</span>
+                    </div>
+                    <div class="cand-bio" id="cb-${i}">${safeBio}</div>
+                  </div>`;
         }).join("");
       }
       function toggleBio(i) {
@@ -7664,12 +7773,12 @@
               )
               .join("");
             return `<div class="card" style="--cc:${c.color}" onclick="showDetail(${id})">
-      <span class="card-cat" style="background:${c.bg};color:${c.color}">${safeCatLabel}</span>
-      ${subtags ? `<div class="card-subtags">${subtags}</div>` : ""}
-      <div class="card-title">${safeTitle}</div>
-      <div class="card-desc">${safeDesc}</div>
-      <div class="card-meta">📍 ${safeCity}${d.cost ? " &nbsp;·&nbsp; " + safeCost : ""}</div>
-    </div>`;
+                    <span class="card-cat" style="background:${c.bg};color:${c.color}">${safeCatLabel}</span>
+                    ${subtags ? `<div class="card-subtags">${subtags}</div>` : ""}
+                    <div class="card-title">${safeTitle}</div>
+                    <div class="card-desc">${safeDesc}</div>
+                    <div class="card-meta">📍 ${safeCity}${d.cost ? " &nbsp;·&nbsp; " + safeCost : ""}</div>
+                  </div>`;
           })
           .join("");
         renderPagination(
@@ -7802,21 +7911,21 @@
           )
           .join("");
         document.getElementById("detail-body").innerHTML = `
-    <div class="detail-card" style="--cc:${c.color}">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;flex-wrap:wrap">
-        <span class="card-cat" style="background:${c.bg};color:${c.color}">${safeCatLabel}</span>
-        ${subtags ? `<div class="card-subtags">${subtags}</div>` : ""}
-        <span style="font-size:12px;color:#888">📍 ${safeCity}</span>
-      </div>
-      <div class="detail-title">${safeTitle}</div>
-      <div class="detail-desc">${safeDesc}</div>
-      <div class="detail-info">
-        <div class="info-block"><div class="info-label">Adresse</div><div class="info-value">${safeAddr}</div></div>
-        ${d.cost ? `<div class="info-block"><div class="info-label">Coût</div><div class="info-value">${safeCost}</div></div>` : ""}
-        ${safeLinkHref ? `<div class="info-block" style="grid-column:1/-1"><div class="info-label">Site web</div><div class="info-value"><a href="${safeLinkHref}" target="_blank" rel="noopener noreferrer" style="color:var(--gm);font-weight:600">${safeLinkText}</a></div></div>` : ""}
-      </div>
-      <a href="${url}" target="_blank" rel="noopener noreferrer" class="maps-link">📍 Voir sur Google Maps</a>
-    </div>`;
+                  <div class="detail-card" style="--cc:${c.color}">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;flex-wrap:wrap">
+                      <span class="card-cat" style="background:${c.bg};color:${c.color}">${safeCatLabel}</span>
+                      ${subtags ? `<div class="card-subtags">${subtags}</div>` : ""}
+                      <span style="font-size:12px;color:#888">📍 ${safeCity}</span>
+                    </div>
+                    <div class="detail-title">${safeTitle}</div>
+                    <div class="detail-desc">${safeDesc}</div>
+                    <div class="detail-info">
+                      <div class="info-block"><div class="info-label">Adresse</div><div class="info-value">${safeAddr}</div></div>
+                      ${d.cost ? `<div class="info-block"><div class="info-label">Coût</div><div class="info-value">${safeCost}</div></div>` : ""}
+                      ${safeLinkHref ? `<div class="info-block" style="grid-column:1/-1"><div class="info-label">Site web</div><div class="info-value"><a href="${safeLinkHref}" target="_blank" rel="noopener noreferrer" style="color:var(--gm);font-weight:600">${safeLinkText}</a></div></div>` : ""}
+                    </div>
+                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="maps-link">📍 Voir sur Google Maps</a>
+                  </div>`;
         document.getElementById("main-view").classList.remove("active");
         document.getElementById("detail-view").classList.add("active");
         window.scrollTo(0, 0);
@@ -7861,26 +7970,26 @@
             const safeFullDesc = escapeHTML(e.full_desc || e.desc);
             const mapsUrl = `https://www.google.com/maps/search/${encodeURIComponent(e.lieu || "")}`;
             return `
-    <div class="event-card">
-      <div class="event-summary" onclick="toggleEvent(${eventId})">
-        <div class="event-date-block"><div class="event-day">${safeDay}</div><div class="event-month">${safeMonth}</div></div>
-        <div style="flex:1">
-          <div class="event-title">${safeTitle}<span class="event-badge" style="color:${cols[e.type] || "#3d9422"}">${safeType}</span></div>
-          <div class="event-meta">📍 ${safeLieu} · ${safeDate}</div>
-          <div style="font-size:13px;color:#555;margin-top:.2rem">${safeDesc}</div>
-        </div>
-        <span class="event-toggle" id="etog-${eventId}">▼</span>
-      </div>
-      <div class="event-detail" id="edet-${eventId}">
-        <div class="event-detail-grid">
-          <div class="event-info-block"><div class="event-info-label">Date</div><div class="event-info-val">${safeDate}</div></div>
-          <div class="event-info-block"><div class="event-info-label">Lieu</div><div class="event-info-val">${safeLieu}</div></div>
-          <div class="event-info-block"><div class="event-info-label">Type</div><div class="event-info-val">${safeType}</div></div>
-        </div>
-        <p>${safeFullDesc}</p>
-        <a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:var(--gm);font-weight:600;text-decoration:none">📍 Voir sur Maps →</a>
-      </div>
-    </div>`;
+                  <div class="event-card">
+                    <div class="event-summary" onclick="toggleEvent(${eventId})">
+                      <div class="event-date-block"><div class="event-day">${safeDay}</div><div class="event-month">${safeMonth}</div></div>
+                      <div style="flex:1">
+                        <div class="event-title">${safeTitle}<span class="event-badge" style="color:${cols[e.type] || "#3d9422"}">${safeType}</span></div>
+                        <div class="event-meta">📍 ${safeLieu} · ${safeDate}</div>
+                        <div style="font-size:13px;color:#555;margin-top:.2rem">${safeDesc}</div>
+                      </div>
+                      <span class="event-toggle" id="etog-${eventId}">▼</span>
+                    </div>
+                    <div class="event-detail" id="edet-${eventId}">
+                      <div class="event-detail-grid">
+                        <div class="event-info-block"><div class="event-info-label">Date</div><div class="event-info-val">${safeDate}</div></div>
+                        <div class="event-info-block"><div class="event-info-label">Lieu</div><div class="event-info-val">${safeLieu}</div></div>
+                        <div class="event-info-block"><div class="event-info-label">Type</div><div class="event-info-val">${safeType}</div></div>
+                      </div>
+                      <p>${safeFullDesc}</p>
+                      <a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:var(--gm);font-weight:600;text-decoration:none">📍 Voir sur Maps →</a>
+                    </div>
+                  </div>`;
           })
           .join("");
       }
@@ -8072,8 +8181,8 @@
             return;
           }
           content.innerHTML = `<div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>Nom</th><th>Thématique</th><th>Description</th><th>Email</th><th>Actions</th></tr></thead><tbody>
-            ${pending.map((s) => `<tr><td style="font-weight:600">${escapeHTML(s.name)}</td><td>${escapeHTML(s.cat)}</td><td style="font-size:12px;max-width:180px">${escapeHTML((s.desc || "").substring(0, 80))}...</td><td style="font-size:12px;color:#888">${escapeHTML(s.email || "n/a")}</td><td><button class="action-btn edit" onclick="openModalSuggestion(${safeId(s.id)})">✎ Éditer</button><button class="action-btn" onclick="publishSuggestion(${safeId(s.id)})">✓ Publier</button><button class="action-btn del" onclick="deleteSuggestion(${safeId(s.id)})">✕ Rejeter</button></td></tr>`).join("")}
-    </tbody></table></div>`;
+                          ${pending.map((s) => `<tr><td style="font-weight:600">${escapeHTML(s.name)}</td><td>${escapeHTML(s.cat)}</td><td style="font-size:12px;max-width:180px">${escapeHTML((s.desc || "").substring(0, 80))}...</td><td style="font-size:12px;color:#888">${escapeHTML(s.email || "n/a")}</td><td><button class="action-btn edit" onclick="openModalSuggestion(${safeId(s.id)})">✎ Éditer</button><button class="action-btn" onclick="publishSuggestion(${safeId(s.id)})">✓ Publier</button><button class="action-btn del" onclick="deleteSuggestion(${safeId(s.id)})">✕ Rejeter</button></td></tr>`).join("")}
+                  </tbody></table></div>`;
         } else if (state.adminTab === "entries") {
           const filtered = getAdminFiltered();
           const total = filtered.length;
@@ -8081,18 +8190,18 @@
           const start = (state.adminPage - 1) * ADMIN_PER_PAGE;
           const pageItems = filtered.slice(start, start + ADMIN_PER_PAGE);
           content.innerHTML = `
-      <div class="admin-search-bar">
-        <input type="text" placeholder="Rechercher par titre ou description..." value="${escapeHTML(state.adminQuery)}" id="admin-search-input" oninput="adminSearchDebounce(this.value)"/>
-        <select onchange="state.adminCat=this.value;state.adminPage=1;renderAdminDash()">
-          <option value="">Toutes les catégories</option>
-          ${CATS.map((c) => `<option value="${c.id}"${state.adminCat === c.id ? " selected" : ""}>${escapeHTML(c.label)}</option>`).join("")}
-        </select>
-        <span style="font-size:13px;color:#888">${total} entrée${total !== 1 ? "s" : ""}</span>
-      </div>
-      <div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>Titre</th><th>Catégorie</th><th>Ville</th><th>Statut</th><th>Actions</th></tr></thead><tbody>
-      ${pageItems.map((e) => `<tr><td style="font-weight:600;max-width:200px">${escapeHTML(e.title)}</td><td style="font-size:12px">${escapeHTML(catC(e.cat).label)}</td><td>${escapeHTML(Array.isArray(e.city) ? e.city.join(", ") : e.city)}</td><td><span class="${e.published !== false ? "s-pub" : "s-pending"}">${e.published !== false ? "Publié" : "Dépublié"}</span></td><td><button class="action-btn edit" onclick="openModal(${safeId(e.id)})">✎ Modifier</button><button class="action-btn del" onclick="togglePublish(${safeId(e.id)})">${e.published !== false ? "Dépublier" : "Republier"}</button></td></tr>`).join("")}
-      </tbody></table></div>
-      <div class="pagination" id="admin-pagination"></div>`;
+                    <div class="admin-search-bar">
+                      <input type="text" placeholder="Rechercher par titre ou description..." value="${escapeHTML(state.adminQuery)}" id="admin-search-input" oninput="adminSearchDebounce(this.value)"/>
+                      <select onchange="state.adminCat=this.value;state.adminPage=1;renderAdminDash()">
+                        <option value="">Toutes les catégories</option>
+                        ${CATS.map((c) => `<option value="${c.id}"${state.adminCat === c.id ? " selected" : ""}>${escapeHTML(c.label)}</option>`).join("")}
+                      </select>
+                      <span style="font-size:13px;color:#888">${total} entrée${total !== 1 ? "s" : ""}</span>
+                    </div>
+                    <div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>Titre</th><th>Catégorie</th><th>Ville</th><th>Statut</th><th>Actions</th></tr></thead><tbody>
+                    ${pageItems.map((e) => `<tr><td style="font-weight:600;max-width:200px">${escapeHTML(e.title)}</td><td style="font-size:12px">${escapeHTML(catC(e.cat).label)}</td><td>${escapeHTML(Array.isArray(e.city) ? e.city.join(", ") : e.city)}</td><td><span class="${e.published !== false ? "s-pub" : "s-pending"}">${e.published !== false ? "Publié" : "Dépublié"}</span></td><td><button class="action-btn edit" onclick="openModal(${safeId(e.id)})">✎ Modifier</button><button class="action-btn del" onclick="togglePublish(${safeId(e.id)})">${e.published !== false ? "Dépublier" : "Republier"}</button></td></tr>`).join("")}
+                    </tbody></table></div>
+                    <div class="pagination" id="admin-pagination"></div>`;
           renderPagination(
             totalPages,
             state.adminPage,
@@ -8104,40 +8213,40 @@
           );
         } else if (state.adminTab === "events-admin") {
           content.innerHTML = `<div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>Événement</th><th>Date</th><th>Lieu</th><th>Type</th><th>Actions</th></tr></thead><tbody>
-            ${allEvents.map((e) => `<tr><td style="font-weight:600">${escapeHTML(e.title)}</td><td>${escapeHTML(e.date)}</td><td>${escapeHTML(e.lieu)}</td><td>${escapeHTML(e.type)}</td><td><button class="action-btn del" onclick="removeEvent(${safeId(e.id)})">Retirer</button></td></tr>`).join("")}
-    </tbody></table></div>`;
+                          ${allEvents.map((e) => `<tr><td style="font-weight:600">${escapeHTML(e.title)}</td><td>${escapeHTML(e.date)}</td><td>${escapeHTML(e.lieu)}</td><td>${escapeHTML(e.type)}</td><td><button class="action-btn del" onclick="removeEvent(${safeId(e.id)})">Retirer</button></td></tr>`).join("")}
+                  </tbody></table></div>`;
         } else if (state.adminTab === "add") {
           content.innerHTML = `<div style="background:#fff;border:1.5px solid #e0e0e0;border-radius:14px;padding:1.5rem;max-width:680px">
-      <h3 style="font-family:Montserrat,sans-serif;font-weight:800;font-size:.95rem;color:var(--gd);margin-bottom:1rem">Ajouter une entrée</h3>
-      <div class="form-grid">
-        <div class="form-row"><label>Titre *</label><input type="text" id="a-title"/></div>
-        <div class="form-row"><label>Catégorie *</label><select id="a-cat">${CATS.map((c) => `<option value="${c.id}">${c.label}</option>`).join("")}</select></div>
-      </div>
-      <div class="form-row"><label>Ville(s) / Disponibilité</label>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;padding:.4rem 0">
-          <label style="display:flex;align-items:center;gap:5px;font-size:13px;color:#444;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400"><input type="checkbox" class="add-city-cb" value="Bangkok" style="width:auto;padding:0;border:none;background:none;margin:0"/> Bangkok</label>
-          <label style="display:flex;align-items:center;gap:5px;font-size:13px;color:#444;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400"><input type="checkbox" class="add-city-cb" value="Chiang Mai" style="width:auto;padding:0;border:none;background:none;margin:0"/> Chiang Mai</label>
-          <label style="display:flex;align-items:center;gap:5px;font-size:13px;color:#444;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400"><input type="checkbox" class="add-city-cb" value="Phuket" style="width:auto;padding:0;border:none;background:none;margin:0"/> Phuket</label>
-          <label style="display:flex;align-items:center;gap:5px;font-size:13px;color:#444;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400"><input type="checkbox" class="add-city-cb" value="Koh Tao" style="width:auto;padding:0;border:none;background:none;margin:0"/> Koh Tao</label>
-          <label style="display:flex;align-items:center;gap:5px;font-size:13px;color:#444;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400"><input type="checkbox" class="add-city-cb" value="Koh Samui" style="width:auto;padding:0;border:none;background:none;margin:0"/> Koh Samui</label>
-          <label style="display:flex;align-items:center;gap:5px;font-size:13px;color:#444;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400"><input type="checkbox" class="add-city-cb" value="Hua Hin" style="width:auto;padding:0;border:none;background:none;margin:0"/> Hua Hin</label>
-          <label style="display:flex;align-items:center;gap:5px;font-size:13px;color:#2d7a1b;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:600"><input type="checkbox" class="add-city-cb" value="En ligne" style="width:auto;padding:0;border:none;background:none;margin:0"/> En ligne</label>
-        </div>
-      </div>
-      <div class="form-row"><label>Sous-filtres</label>
-        <div id="add-subtags-wrap" style="display:flex;flex-wrap:wrap;gap:6px;padding:.4rem 0">
-          <span style="font-size:12px;color:#aaa">Sélectionnez d'abord une catégorie</span>
-        </div>
-      </div>
-      <div class="form-row"><label>Adresse</label><input type="text" id="a-addr"/></div>
-      <div class="form-row"><label>Description *</label><textarea id="a-desc" style="height:90px"></textarea></div>
-      <div class="form-grid">
-        <div class="form-row"><label>Coût</label><input type="text" id="a-cost"/></div>
-        <div class="form-row"><label>Lien web</label><input type="text" id="a-link"/></div>
-      </div>
-      <button class="submit-btn" onclick="addEntry()">Publier l\'entrée</button>
-      <div class="success-msg" id="add-success">Entrée publiée !</div>
-    </div>`;
+                    <h3 style="font-family:Montserrat,sans-serif;font-weight:800;font-size:.95rem;color:var(--gd);margin-bottom:1rem">Ajouter une entrée</h3>
+                    <div class="form-grid">
+                      <div class="form-row"><label>Titre *</label><input type="text" id="a-title"/></div>
+                      <div class="form-row"><label>Catégorie *</label><select id="a-cat">${CATS.map((c) => `<option value="${c.id}">${c.label}</option>`).join("")}</select></div>
+                    </div>
+                    <div class="form-row"><label>Ville(s) / Disponibilité</label>
+                      <div style="display:flex;flex-wrap:wrap;gap:6px;padding:.4rem 0">
+                        <label style="display:flex;align-items:center;gap:5px;font-size:13px;color:#444;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400"><input type="checkbox" class="add-city-cb" value="Bangkok" style="width:auto;padding:0;border:none;background:none;margin:0"/> Bangkok</label>
+                        <label style="display:flex;align-items:center;gap:5px;font-size:13px;color:#444;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400"><input type="checkbox" class="add-city-cb" value="Chiang Mai" style="width:auto;padding:0;border:none;background:none;margin:0"/> Chiang Mai</label>
+                        <label style="display:flex;align-items:center;gap:5px;font-size:13px;color:#444;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400"><input type="checkbox" class="add-city-cb" value="Phuket" style="width:auto;padding:0;border:none;background:none;margin:0"/> Phuket</label>
+                        <label style="display:flex;align-items:center;gap:5px;font-size:13px;color:#444;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400"><input type="checkbox" class="add-city-cb" value="Koh Tao" style="width:auto;padding:0;border:none;background:none;margin:0"/> Koh Tao</label>
+                        <label style="display:flex;align-items:center;gap:5px;font-size:13px;color:#444;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400"><input type="checkbox" class="add-city-cb" value="Koh Samui" style="width:auto;padding:0;border:none;background:none;margin:0"/> Koh Samui</label>
+                        <label style="display:flex;align-items:center;gap:5px;font-size:13px;color:#444;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400"><input type="checkbox" class="add-city-cb" value="Hua Hin" style="width:auto;padding:0;border:none;background:none;margin:0"/> Hua Hin</label>
+                        <label style="display:flex;align-items:center;gap:5px;font-size:13px;color:#2d7a1b;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:600"><input type="checkbox" class="add-city-cb" value="En ligne" style="width:auto;padding:0;border:none;background:none;margin:0"/> En ligne</label>
+                      </div>
+                    </div>
+                    <div class="form-row"><label>Sous-filtres</label>
+                      <div id="add-subtags-wrap" style="display:flex;flex-wrap:wrap;gap:6px;padding:.4rem 0">
+                        <span style="font-size:12px;color:#aaa">Sélectionnez d'abord une catégorie</span>
+                      </div>
+                    </div>
+                    <div class="form-row"><label>Adresse</label><input type="text" id="a-addr"/></div>
+                    <div class="form-row"><label>Description *</label><textarea id="a-desc" style="height:90px"></textarea></div>
+                    <div class="form-grid">
+                      <div class="form-row"><label>Coût</label><input type="text" id="a-cost"/></div>
+                      <div class="form-row"><label>Lien web</label><input type="text" id="a-link"/></div>
+                    </div>
+                    <button class="submit-btn" onclick="addEntry()">Publier l\'entrée</button>
+                    <div class="success-msg" id="add-success">Entrée publiée !</div>
+                  </div>`;
         }
       }
 
@@ -8314,7 +8423,7 @@
         allEntries.push({
           id: Date.now(),
           title: s.name,
-          cat: CATS.find((c) => c.label === s.cat)?.id || "bio",
+          cat: CATS.find((c) => c.label === s.cat)?.id || BIO,
           city: "Bangkok",
           addr: s.addr || "",
           lat: 13.75,
